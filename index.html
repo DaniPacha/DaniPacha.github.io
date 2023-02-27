@@ -31,6 +31,18 @@
         padding-left: 5rem;
         padding-right: 5rem;
     }
+
+    #text_resultados{
+      color: white;
+      line-height: 36px;
+      min-width: 180px;
+      text-align: right;
+      margin-right: 10px;;
+    }
+
+    .hide {display:none;}
+
+    .red {color:Red !important;}
 </style>
 <body>
     <nav class="navbar  navbar-dark bg-dark navbar-expand-lg bg-light">
@@ -50,8 +62,9 @@
               
             </ul>
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
-              <button class="btn btn-outline-primary" type="submit">Buscar</button>
+              <span id="text_resultados" class="inline-block"></span>
+              <input id="searchTerm" class="form-control me-2" type="search" placeholder="Buscar..."  onkeyup="doSearch()" aria-label="Search">
+              <!-- <button class="btn btn-outline-primary" type="button">Buscar</button> -->
             </form>
           </div>
         </div>
@@ -63,9 +76,9 @@
           </div>
         <!-- <hr> -->
         <div class="table-responsive"  style="max-height: 820px">
-            <table class="table table-responsive table-responsive-sm table-striped-columns table-hover table-hover-dark" style="font-size: 12px;" >
+            <table id="datos_compras" class="table table-responsive table-responsive-sm table-striped-columns table-hover table-hover-dark" style="font-size: 10.8px;" >
                 <thead>
-                    <tr class="table-primary">
+                    <tr class="table-primary ">
                         <th>#</th>
                         <th>Archivos</th>
                         <th>Cuenta-Cta.Cte</th>  
@@ -1108,6 +1121,97 @@ function descargar_pago(id_pcompra){
         myModalError.show();
     }
     };
+}
+
+
+
+
+function doSearch(){
+
+  const tableReg = document.getElementById('datos_compras');
+
+  const searchText = document.getElementById('searchTerm').value.toLowerCase();
+
+  let total = 0;
+
+
+
+  // Recorremos todas las filas con contenido de la tabla
+
+  for (let i = 1; i < tableReg.rows.length; i++) {
+
+      // Si el td tiene la clase "noSearch" no se busca en su cntenido
+
+      if (tableReg.rows[i].classList.contains("noSearch")) {
+
+          continue;
+
+      }
+
+
+
+      let found = false;
+
+      const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+
+      // Recorremos todas las celdas
+
+      for (let j = 0; j < cellsOfRow.length && !found; j++) {
+
+          const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+
+          // Buscamos el texto en el contenido de la celda
+
+          if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+
+              found = true;
+
+              total++;
+
+          }
+
+      }
+
+      if (found) {
+
+      tableReg.rows[i].style.display = '';
+
+      } else {
+
+      // si no ha encontrado ninguna coincidencia, esconde la
+
+      // fila de la tabla
+
+      tableReg.rows[i].style.display = 'none';
+
+      }
+
+  }
+
+
+
+  // mostramos las coincidencias
+
+  const msj_busqueda = document.getElementById("text_resultados");
+
+  msj_busqueda.classList.remove("hide", "red");
+
+  if (searchText == "") {
+
+    msj_busqueda.classList.add("hide");
+
+  } else if (total) {
+
+    msj_busqueda.innerHTML="Hay <b>"+total+"</b> coincidencia"+((total>1)?"s":"");
+
+  } else {
+
+    msj_busqueda.classList.add("red");
+
+    msj_busqueda.innerHTML="<b>0</b> coincidencias";
+
+  }
+
 }
 
 
