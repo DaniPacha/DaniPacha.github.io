@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfeccionamiento LIMA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../aide-excel.ico" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    
+</head>
+<style>
+    .pointer{
+        cursor: pointer;
+    }
+    .pointer:hover{
+        color: yellow;
+    }
+    .table-hover.table-hover-dark > tbody > tr:hover > * {
+        background-color: #484848;
+        color: #ddd;
+        transition: all 0.3s;
+    }
+    
+    .pl-5{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    #text_resultados{
+      color: white;
+      line-height: 36px;
+      min-width: 180px;
+      text-align: right;
+      margin-right: 10px;;
+    }
+
+    .hide {display:none;}
+
+    .red {color:Red !important;}
+</style>
+<body>
+    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg bg-light">
+        <div class="container-fluid container-xxl">
+          <a class="navbar-brand" href="index.html">AIDE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Perfeccionamiento</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="programas_deportivos.html">Progr. Deportivos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="proyeccion_social.html">Proyección Social</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="investigacion.html">Investigación</a>
+              </li>   
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="desarrollo_docente.html">Desarrollo Doc. Investig.</a>
+              </li>             
+            </ul>
+            <form class="d-flex" role="search">
+              <span id="text_resultados" class="inline-block"></span>
+              <input id="searchTerm" class="form-control me-2" type="search" placeholder="Buscar..."  onkeyup="doSearch()" aria-label="Search">
+              <!-- <button class="btn btn-outline-primary" type="button">Buscar</button> -->
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <h1 class="">Perfeccionamiento (4117005) LIMA<span class="badge text-bg-light pointer" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.33em;"> <i class="fa fa-chevron-down" aria-hidden="true"></i></span></h1>
+        <div class="collapse" id="collapseExample">
+            <input id="f_token" type="text" class="form-control" placeholder="ahjHGFkjGKJG54JHGJ57HKGDFdwsL65" value="X">
+          </div>
+        <!-- <hr> -->
+        <div class="table-responsive"  style="max-height: 800px">
+            <table id="datos_compras" class="table table-responsive table-responsive-sm table-striped-columns table-hover table-hover-dark" style="font-size: 10.8px;" >
+                <thead>
+                    <tr class="table-primary ">
+                        <th>#</th>
+                        <th>Archivos</th>
+                        <th>Cuenta-Cta.Cte</th>  
+                        <th>Departm.</th>  
+                        <th>Descripcion Asiento</th>  
+                        <th>Imp Asiento</th>  
+                        <th>Razon Social</th>  
+                        <th>RUC</th>  
+                        <th>Tipo Comp.</th>  
+                        <th>Serie-Numero</th>  
+                        <th>Nro Compr.</th>    
+                        <th>Imp.Total Compr.</th>   
+                        <th>IGV Compr.</th>   
+                        <th>Fecha Comp.</th>  
+                        <th>Fecha Prov.</th> 
+                        <th>Lote Compra</th>  
+                        <th>Imp Pago</th>  
+                        <th>Imp Pago Dolares</th>  
+                        <th>Num Oper.</th>  
+                        <th>Fecha Pago</th>  
+                        <th>Lote Pago</th> 
+                        <th>Fecha Lote Pago</th>  
+                        <th>Retención</th> 
+                        <th>Detracción</th>  
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr><td align="right">	1	</td><td><span class="pointer" onclick="descargar_pago(328044)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13050102	</td><td>7124- INVO-163490-1 | Ayuda económica Cursos Doctorales - Mg. Jesús Hanc	</td><td align="right"><b>3,621.45	</b></td><td>Andrews University  	</td><td><b>00000000044	</b></td><td>COMPROBANTE DE NO DOMICILIADO	</td><td>INVO-163490-1	</td><td>0000163490-1	</td><td align="right"><b>3,621.45	</td><td align="right"><b>0.00	</b></td><td>20-FEB-24	</td><td>22-FEB-24	</td><td>RC 16	</td><td align="right"><b>   3,621.45	</b></td><td align="right">   3,065.30	</td><td>7911	</td><td>28-FEB-24	</td><td>MB 47	</td><td>28-FEB-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	2	</td><td><span class="pointer" onclick="descargar_pago(328051)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13050102	</td><td>7124- INVO-163490-2 | Ayuda económica cursos Doctorales - Mg. Jesús Ha	</td><td align="right"><b>8,048.00	</b></td><td>Andrews University  	</td><td><b>00000000044	</b></td><td>COMPROBANTE DE NO DOMICILIADO	</td><td>INVO-163490-2	</td><td>0000163490-2	</td><td align="right"><b>8,048.00	</td><td align="right"><b>0.00	</b></td><td>20-FEB-24	</td><td>22-FEB-24	</td><td>RC 16	</td><td align="right"><b>   8,048.00	</b></td><td align="right">   3,065.30	</td><td>7911	</td><td>28-FEB-24	</td><td>MB 47	</td><td>28-FEB-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	3	</td><td><span class="pointer" onclick="descargar_pago(340827)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- E001-92 | RAUL LUJAN CANCHO ( PLAN CAPACITACIÓN  Y PERFECCIO | R	</td><td align="right"><b>908.60	</b></td><td>Centro De Estudios Brasileños Da Silva Cordeiro S.A.C. Centro De Estudios Brasileños Da Silva Cordeiro S.A.C. 	</td><td><b>20609347148	</b></td><td>FACTURA	</td><td>E001-92	</td><td>000000000092	</td><td align="right"><b>908.60	</td><td align="right"><b>138.60	</b></td><td>09-ENE-24	</td><td>13-MAR-24	</td><td>RC 10	</td><td align="right"><b>     799.60	</b></td><td align="right">       0.00	</td><td>000565730	</td><td>19-MAR-24	</td><td>MB 24	</td><td>19-MAR-24	</td><td>	</td><td><b>109.00</b> 19-MAR-24 229858963	</td></tr>
+                  <tr><td align="right">	4	</td><td><span class="pointer" onclick="descargar_pago(340842)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F004-340 | RAUL LUJAN ( PLAN CAPACITACIÓN DOCENTE Y PERFECCIO |	</td><td align="right"><b>3,204.00	</b></td><td>Universidad De Ciencias Y Artes De America Latina S.A.C. - Ucal S.A.C. Universidad De Ciencias Y Artes De America Latina S.A.C. - Ucal S.A.C. 	</td><td><b>20537886618	</b></td><td>FACTURA	</td><td>F004-340	</td><td>000000000340	</td><td align="right"><b>3,204.00	</td><td align="right"><b>0.00	</b></td><td>10-ENE-24	</td><td>13-MAR-24	</td><td>RC 10	</td><td align="right"><b>   3,204.00	</b></td><td align="right">       0.00	</td><td>000565371	</td><td>14-MAR-24	</td><td>MB 20	</td><td>14-MAR-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	5	</td><td><span class="pointer" onclick="descargar_pago(340847)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F004-371 | RAUL LUJAN ( PLAN CAPACITACIÓN DOCENTE Y PERFECCIO | 	</td><td align="right"><b>3,204.00	</b></td><td>Universidad De Ciencias Y Artes De America Latina S.A.C. - Ucal S.A.C. Universidad De Ciencias Y Artes De America Latina S.A.C. - Ucal S.A.C. 	</td><td><b>20537886618	</b></td><td>FACTURA	</td><td>F004-371	</td><td>000000000371	</td><td align="right"><b>3,204.00	</td><td align="right"><b>0.00	</b></td><td>07-MAR-24	</td><td>13-MAR-24	</td><td>RC 10	</td><td align="right"><b>   3,204.00	</b></td><td align="right">       0.00	</td><td>000565371	</td><td>14-MAR-24	</td><td>MB 20	</td><td>14-MAR-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	6	</td><td><span class="pointer" onclick="descargar_pago(341639)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030202	</td><td>7124- E001-840 | Movilidad UPeU Lima-Aeropuerto / Aeropuerto - UPeU |	</td><td align="right"><b>220.00	</b></td><td>Yusely Tours Sac  	</td><td><b>20538515419	</b></td><td>FACTURA	</td><td>E001-840	</td><td>000000000840	</td><td align="right"><b>220.00	</td><td align="right"><b>33.56	</b></td><td>03-MAR-24	</td><td>14-MAR-24	</td><td>RC 11	</td><td align="right"><b>     220.00	</b></td><td align="right">       0.00	</td><td>010648	</td><td>15-MAR-24	</td><td>MB 21	</td><td>15-MAR-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	7	</td><td><span class="pointer" onclick="descargar_pago(356716)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F001-20801 | PAUL ALVAREZ CAPACITACIÓN DOCENTE | PAUL ALVAREZ CA	</td><td align="right"><b>1,766.60	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F001-20801	</td><td>000000020801	</td><td align="right"><b>1,766.60	</td><td align="right"><b>0.00	</b></td><td>08-ABR-24	</td><td>10-ABR-24	</td><td>RC 8	</td><td align="right"><b>   1,766.60	</b></td><td align="right">       0.00	</td><td>000566925	</td><td>10-ABR-24	</td><td>MB 10	</td><td>10-ABR-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	8	</td><td><span class="pointer" onclick="descargar_pago(361352)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- INV0-2404688716 | Representación Arquitectónica: Domestika - Sus	</td><td align="right"><b>241.66	</b></td><td>Domestika Inc  	</td><td><b>00000000067	</b></td><td>COMPROBANTE DE NO DOMICILIADO	</td><td>INV0-2404688716	</td><td>002404688716	</td><td align="right"><b>241.66	</td><td align="right"><b>0.00	</b></td><td>14-ABR-24	</td><td>15-ABR-24	</td><td>RC 11	</td><td align="right"><b>     241.66	</b></td><td align="right">      65.12	</td><td>1022777	</td><td>04-JUN-24	</td><td>MB 2	</td><td>04-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	9	</td><td><span class="pointer" onclick="descargar_pago(366559)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030103	</td><td>7124- F102-1999 | Pago enseñanza doctorado | Pago enseñanza doctorado	</td><td align="right"><b>1,050.00	</b></td><td>Fundacion Para El Desarrollo Agrario Fundacion Desarrollo Agrario 	</td><td><b>20101259014	</b></td><td>FACTURA	</td><td>F102-1999	</td><td>000000001999	</td><td align="right"><b>1,050.00	</td><td align="right"><b>0.00	</b></td><td>19-MAR-24	</td><td>22-ABR-24	</td><td>RC 16	</td><td align="right"><b>   1,050.00	</b></td><td align="right">       0.00	</td><td>000567763	</td><td>29-ABR-24	</td><td>MB 57	</td><td>29-ABR-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	10	</td><td><span class="pointer" onclick="descargar_pago(368540)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13050102	</td><td>7124- F055-3630 | Capacitación y Perfeccionamiento Profesional 2024 |	</td><td align="right"><b>4,500.00	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F055-3630	</td><td>000000003630	</td><td align="right"><b>4,500.00	</td><td align="right"><b>0.00	</b></td><td>22-ABR-24	</td><td>25-ABR-24	</td><td>RC 19	</td><td align="right"><b>   4,500.00	</b></td><td align="right">       0.00	</td><td>000567261	</td><td>25-ABR-24	</td><td>MI 44	</td><td>19-ABR-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	11	</td><td><span class="pointer" onclick="descargar_pago(370159)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030104	</td><td>7124- F002-619 | OCTORADO EN PSICOLOGÍA - PERFECCIONAMIENTO DOCENTE - RAMÍREZ VEGA CELINA	</td><td align="right"><b>870.00	</b></td><td>Universidad Femenina Del Sagrado Corazon Universidad Femenina Del Sagrado Corazon 	</td><td><b>20141230329	</b></td><td>FACTURA	</td><td>F002-619	</td><td>000000000619	</td><td align="right"><b>870.00	</td><td align="right"><b>0.00	</b></td><td>02-ABR-24	</td><td>25-ABR-24	</td><td>RC 19	</td><td align="right"><b>     870.00	</b></td><td align="right">       0.00	</td><td>000566177	</td><td>30-ABR-24	</td><td>MI 66	</td><td>30-ABR-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	12	</td><td><span class="pointer" onclick="descargar_pago(384968)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030201	</td><td>7124- F029-534 | apoyo academico - doctorado Magaly Rojas 1/2 | apoyo	</td><td align="right"><b>3,800.00	</b></td><td>Universidad Nacional Mayor De San Marcos Universidad Nacional Mayor De San Marcos 	</td><td><b>20148092282	</b></td><td>FACTURA	</td><td>F029-534	</td><td>000000000534	</td><td align="right"><b>3,800.00	</td><td align="right"><b>0.00	</b></td><td>25-ABR-24	</td><td>24-MAY-24	</td><td>RC 15	</td><td align="right"><b>   3,800.00	</b></td><td align="right">       0.00	</td><td>162057	</td><td>27-MAY-24	</td><td>MB 51	</td><td>27-MAY-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	13	</td><td><span class="pointer" onclick="descargar_pago(395495)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F001-20867 | Acuerdo convenio de estudios | Acuerdo convenio de 	</td><td align="right"><b>2,238.23	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F001-20867	</td><td>000000020867	</td><td align="right"><b>2,238.23	</td><td align="right"><b>0.00	</b></td><td>03-JUN-24	</td><td>06-JUN-24	</td><td>RC 4	</td><td align="right"><b>   2,238.23	</b></td><td align="right">       0.00	</td><td>000568316	</td><td>13-JUN-24	</td><td>MI 23	</td><td>12-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	14	</td><td><span class="pointer" onclick="descargar_pago(395509)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F090-2719 | Acuerdo convenio de estudios | Acuerdo convenio de e	</td><td align="right"><b>2,238.22	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F090-2719	</td><td>000000002719	</td><td align="right"><b>2,238.22	</td><td align="right"><b>0.00	</b></td><td>16-MAY-24	</td><td>06-JUN-24	</td><td>RC 4	</td><td align="right"><b>   2,238.22	</b></td><td align="right">       0.00	</td><td>000568316	</td><td>13-JUN-24	</td><td>MI 23	</td><td>12-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	15	</td><td><span class="pointer" onclick="descargar_pago(402651)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>14040101	</td><td>7124- F029-522 | CAPACITACIÓN Y PERFECCIONAMIENTO DOCENTE 2024 - MG | 	</td><td align="right"><b>1,900.00	</b></td><td>Universidad Nacional Mayor De San Marcos Universidad Nacional Mayor De San Marcos 	</td><td><b>20148092282	</b></td><td>FACTURA	</td><td>F029-522	</td><td>000000000522	</td><td align="right"><b>3,800.00	</td><td align="right"><b>0.00	</b></td><td>16-ABR-24	</td><td>18-JUN-24	</td><td>RC 11	</td><td align="right"><b>   3,800.00	</b></td><td align="right">       0.00	</td><td>288877044	</td><td>20-JUN-24	</td><td>MI 30	</td><td>13-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	16	</td><td><span class="pointer" onclick="descargar_pago(402651)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030102	</td><td>7124- F029-522 | CAPACITACIÓN Y PERFECCIONAMIENTO DOCENTE 2024 - MG | 	</td><td align="right"><b>1,900.00	</b></td><td>Universidad Nacional Mayor De San Marcos Universidad Nacional Mayor De San Marcos 	</td><td><b>20148092282	</b></td><td>FACTURA	</td><td>F029-522	</td><td>000000000522	</td><td align="right"><b>3,800.00	</td><td align="right"><b>0.00	</b></td><td>16-ABR-24	</td><td>18-JUN-24	</td><td>RC 11	</td><td align="right"><b>   3,800.00	</b></td><td align="right">       0.00	</td><td>288877044	</td><td>20-JUN-24	</td><td>MI 30	</td><td>13-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	17	</td><td><span class="pointer" onclick="descargar_pago(402821)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>14050101	</td><td>7124- E001-272 | PLAN DE CAPACITAC 2024 - DR. RAFAEL CALLA MERCADO- | 	</td><td align="right"><b>3,724.38	</b></td><td>Bioestadistico Empresa Educativa E.I.R.L. - Bioestadistico Eedu E.I.R.L. - 	</td><td><b>20456203877	</b></td><td>FACTURA	</td><td>E001-272	</td><td>000000000272	</td><td align="right"><b>3,724.38	</td><td align="right"><b>0.00	</b></td><td>30-MAY-24	</td><td>18-JUN-24	</td><td>RC 11	</td><td align="right"><b>   3,724.38	</b></td><td align="right">     990.00	</td><td>00038309	</td><td>20-JUN-24	</td><td>MI 30	</td><td>13-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	18	</td><td><span class="pointer" onclick="descargar_pago(409787)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F090-2765 | Acuerdo convenio de estudios | Acuerdo convenio de e	</td><td align="right"><b>2,238.23	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F090-2765	</td><td>000000002765	</td><td align="right"><b>2,238.23	</td><td align="right"><b>0.00	</b></td><td>15-JUN-24	</td><td>27-JUN-24	</td><td>RC 18	</td><td align="right"><b>   2,238.23	</b></td><td align="right">       0.00	</td><td>000569546	</td><td>03-JUL-24	</td><td>MI 66	</td><td>30-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	19	</td><td><span class="pointer" onclick="descargar_pago(415843)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>11010108	</td><td>7124- INV0-10000000978 | Chico Robles/Maestría Terapia Breve Estrategi	</td><td align="right"><b>9,950.98	</b></td><td>Terapia Breve Estrategica Costa Rica  	</td><td><b>00000000105	</b></td><td>COMPROBANTE DE NO DOMICILIADO	</td><td>INV0-10000000978	</td><td>010000000978	</td><td align="right"><b>9,950.98	</td><td align="right"><b>0.00	</b></td><td>20-ABR-24	</td><td>25-JUL-24	</td><td>RC 18	</td><td align="right"><b>   9,950.98	</b></td><td align="right">   2,688.00	</td><td>8025	</td><td>01-AGO-24	</td><td>MI 68	</td><td>31-JUL-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	20	</td><td><span class="pointer" onclick="descargar_pago(422133)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030102	</td><td>7124- E001-899 | hospedaje para congreso de directora ep enfermería | 	</td><td align="right"><b>594.07	</b></td><td>Agencia De Viajes Y Turismo Daly Tours S.A.C. Agencia De Viajes Y Turismo Daly Tours S.A.C. 	</td><td><b>20111484091	</b></td><td>FACTURA	</td><td>E001-899	</td><td>000000000899	</td><td align="right"><b>2,475.29	</td><td align="right"><b>40.73	</b></td><td>21-JUN-24	</td><td>17-JUL-24	</td><td>RC 13	</td><td align="right"><b>   2,475.29	</b></td><td align="right">     649.00	</td><td>292819122	</td><td>17-JUL-24	</td><td>MI 17	</td><td>15-JUL-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	21	</td><td><span class="pointer" onclick="descargar_pago(422155)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F090-2801 | PLAN DE CAPACITACIÓN Y PERFECCIONAMIENTO PROFESION |	</td><td align="right"><b>2,238.22	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F090-2801	</td><td>000000002801	</td><td align="right"><b>2,238.22	</td><td align="right"><b>0.00	</b></td><td>15-JUL-24	</td><td>17-JUL-24	</td><td>RC 13	</td><td align="right"><b>   2,238.22	</b></td><td align="right">       0.00	</td><td>000571403	</td><td>17-JUL-24	</td><td>MI 17	</td><td>15-JUL-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	22	</td><td><span class="pointer" onclick="descargar_pago(432427)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030203	</td><td>7124- F002-688 | DOCTORADO EN PSICOLOGÍA - PERFECCIONAMIENTO DOCENT | 	</td><td align="right"><b>3,480.00	</b></td><td>Universidad Femenina Del Sagrado Corazon Universidad Femenina Del Sagrado Corazon 	</td><td><b>20141230329	</b></td><td>FACTURA	</td><td>F002-688	</td><td>000000000688	</td><td align="right"><b>3,480.00	</td><td align="right"><b>0.00	</b></td><td>25-JUL-24	</td><td>22-AGO-24	</td><td>RC 2	</td><td align="right"><b>   3,480.00	</b></td><td align="right">       0.00	</td><td>2012216	</td><td>05-SEP-24	</td><td>MI 69	</td><td>31-AGO-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	23	</td><td><span class="pointer" onclick="descargar_pago(432440)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030203	</td><td>7124- F002-689 | DOCTORADO EN PSICOLOGÍA - PERFECCIONAMIENTO DOCENT | 	</td><td align="right"><b>1,740.00	</b></td><td>Universidad Femenina Del Sagrado Corazon Universidad Femenina Del Sagrado Corazon 	</td><td><b>20141230329	</b></td><td>FACTURA	</td><td>F002-689	</td><td>000000000689	</td><td align="right"><b>1,740.00	</td><td align="right"><b>0.00	</b></td><td>25-JUL-24	</td><td>22-AGO-24	</td><td>RC 2	</td><td align="right"><b>     870.00	</b></td><td align="right">       0.00	</td><td>2012217	</td><td>05-SEP-24	</td><td>MI 69	</td><td>31-AGO-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	24	</td><td><span class="pointer" onclick="descargar_pago(432440)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030203	</td><td>7124- F002-689 | DOCTORADO EN PSICOLOGÍA - PERFECCIONAMIENTO DOCENT | 	</td><td align="right"><b>1,740.00	</b></td><td>Universidad Femenina Del Sagrado Corazon Universidad Femenina Del Sagrado Corazon 	</td><td><b>20141230329	</b></td><td>FACTURA	</td><td>F002-689	</td><td>000000000689	</td><td align="right"><b>1,740.00	</td><td align="right"><b>0.00	</b></td><td>25-JUL-24	</td><td>22-AGO-24	</td><td>RC 2	</td><td align="right"><b>     870.00	</b></td><td align="right">       0.00	</td><td>2012216	</td><td>05-SEP-24	</td><td>MI 69	</td><td>31-AGO-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	25	</td><td><span class="pointer" onclick="descargar_pago(441065)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F024-4176 | HECTOR PAUL ALVAREZ ROSALES - PLAN DE CAPACITACIÓN |	</td><td align="right"><b>1,766.60	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F024-4176	</td><td>000000004176	</td><td align="right"><b>1,766.60	</td><td align="right"><b>0.00	</b></td><td>14-AGO-24	</td><td>23-AGO-24	</td><td>RC 14	</td><td align="right"><b>   1,766.60	</b></td><td align="right">       0.00	</td><td>000573662	</td><td>04-SEP-24	</td><td>MI 69	</td><td>31-AGO-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	26	</td><td><span class="pointer" onclick="descargar_pago(442292)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020104	</td><td>7124- E001-132 | Estudios de doctorado-Milda Cruz | Estudios de doctor	</td><td align="right"><b>2,844.00	</b></td><td>Univ.Nac.De Educ. Enrique Guzman Y Valle Univ.Nac.De Educ. Enrique Guzman Y Valle 	</td><td><b>20174950971	</b></td><td>FACTURA	</td><td>E001-132	</td><td>000000000132	</td><td align="right"><b>2,844.00	</td><td align="right"><b>0.00	</b></td><td>20-AGO-24	</td><td>22-AGO-24	</td><td>RC 2	</td><td align="right"><b>   2,844.00	</b></td><td align="right">       0.00	</td><td>000573661	</td><td>28-AGO-24	</td><td>MI 62	</td><td>22-AGO-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	27	</td><td><span class="pointer" onclick="descargar_pago(444052)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020104	</td><td>7124- E001-133 | Estudio de Doctorado | Estudio de Doctorado	</td><td align="right"><b>2,844.00	</b></td><td>Univ.Nac.De Educ. Enrique Guzman Y Valle Univ.Nac.De Educ. Enrique Guzman Y Valle 	</td><td><b>20174950971	</b></td><td>FACTURA	</td><td>E001-133	</td><td>000000000133	</td><td align="right"><b>2,844.00	</td><td align="right"><b>0.00	</b></td><td>22-AGO-24	</td><td>26-AGO-24	</td><td>RC 17	</td><td align="right"><b>   2,844.00	</b></td><td align="right">       0.00	</td><td>000573713	</td><td>05-SEP-24	</td><td>MI 69	</td><td>31-AGO-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	28	</td><td><span class="pointer" onclick="descargar_pago(453692)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020104	</td><td>7124- F004-79179 | Capacitación profesional Hugo Fernandez | Capacitac	</td><td align="right"><b>800.00	</b></td><td>Universidad Nacional De Ingenieria Uni - 	</td><td><b>20169004359	</b></td><td>FACTURA	</td><td>F004-79179	</td><td>000000079179	</td><td align="right"><b>800.00	</td><td align="right"><b>0.00	</b></td><td>15-ENE-24	</td><td>18-SEP-24	</td><td>RC 13	</td><td align="right"><b>     800.00	</b></td><td align="right">       0.00	</td><td>000575525	</td><td>20-SEP-24	</td><td>MB 35	</td><td>20-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	29	</td><td><span class="pointer" onclick="descargar_pago(456629)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030102	</td><td>7124- F029-564 | estudios de doctorado |Norma Magaly Rojas Regalado	</td><td align="right"><b>4,300.00	</b></td><td>Universidad Nacional Mayor De San Marcos Universidad Nacional Mayor De San Marcos 	</td><td><b>20148092282	</b></td><td>FACTURA	</td><td>F029-564	</td><td>000000000564	</td><td align="right"><b>4,300.00	</td><td align="right"><b>0.00	</b></td><td>29-AGO-24	</td><td>12-SEP-24	</td><td>RC 9	</td><td align="right"><b>   4,300.00	</b></td><td align="right">       0.00	</td><td>011977	</td><td>18-SEP-24	</td><td>MB 30	</td><td>18-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	30	</td><td><span class="pointer" onclick="descargar_pago(457267)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>11010105	</td><td>7124- F219-2545 | Capacitación DTI - BootCamp UX/UI Básico 2024-03 - |	</td><td align="right"><b>950.00	</b></td><td>Universidad Peruana De Ciencias Aplicadas S.A.C. Universidad Peruana De Ciencias Aplicadas S.A.C. 	</td><td><b>20211614545	</b></td><td>FACTURA	</td><td>F219-2545	</td><td>000000002545	</td><td align="right"><b>950.00	</td><td align="right"><b>0.00	</b></td><td>11-SEP-24	</td><td>12-SEP-24	</td><td>RC 9	</td><td align="right"><b>     950.00	</b></td><td align="right">       0.00	</td><td>000575133	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	31	</td><td><span class="pointer" onclick="descargar_pago(470320)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F090-2870 | HECTOR PAUL ALVAREZ ROSALES - PLAN CAPACITACIÓN DO |	</td><td align="right"><b>2,238.23	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F090-2870	</td><td>000000002870	</td><td align="right"><b>2,238.23	</td><td align="right"><b>0.00	</b></td><td>17-SEP-24	</td><td>30-SEP-24	</td><td>RC 22	</td><td align="right"><b>   2,238.23	</b></td><td align="right">       0.00	</td><td>000574370	</td><td>22-OCT-24	</td><td>MI 36	</td><td>17-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	32	</td><td><span class="pointer" onclick="descargar_pago(472697)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>14020301	</td><td>7124- E001-2294 | DIPLOMA INVESTIGACIÓN CUALITATIVA. ALUMNA: GLADYS  |	</td><td align="right"><b>1,752.75	</b></td><td>Universidad Antonio Ruiz De Montoya Universidad Antonio Ruiz De Montoya 	</td><td><b>20507790179	</b></td><td>FACTURA	</td><td>E001-2294	</td><td>000000002294	</td><td align="right"><b>4,275.00	</td><td align="right"><b>0.00	</b></td><td>23-AGO-24	</td><td>03-OCT-24	</td><td>RC 2	</td><td align="right"><b>   4,275.00	</b></td><td align="right">       0.00	</td><td>012183	</td><td>11-OCT-24	</td><td>MB 15	</td><td>11-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	33	</td><td><span class="pointer" onclick="descargar_pago(472697)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>14010101	</td><td>7124- E001-2294 | DIPLOMA INVESTIGACIÓN CUALITATIVA. ALUMNA: GLADYS  |	</td><td align="right"><b>2,522.25	</b></td><td>Universidad Antonio Ruiz De Montoya Universidad Antonio Ruiz De Montoya 	</td><td><b>20507790179	</b></td><td>FACTURA	</td><td>E001-2294	</td><td>000000002294	</td><td align="right"><b>4,275.00	</td><td align="right"><b>0.00	</b></td><td>23-AGO-24	</td><td>03-OCT-24	</td><td>RC 2	</td><td align="right"><b>   4,275.00	</b></td><td align="right">       0.00	</td><td>012183	</td><td>11-OCT-24	</td><td>MB 15	</td><td>11-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	34	</td><td><span class="pointer" onclick="descargar_pago(484371)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F090-2942 | PAUL ALVAREZ ROSALES - CAPACITACIÓN Y PERFECCIONAM |	</td><td align="right"><b>2,238.22	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F090-2942	</td><td>000000002942	</td><td align="right"><b>2,238.22	</td><td align="right"><b>0.00	</b></td><td>17-OCT-24	</td><td>28-OCT-24	</td><td>RC 18	</td><td align="right"><b>   2,238.22	</b></td><td align="right">       0.00	</td><td>000576128	</td><td>31-OCT-24	</td><td>MI 69	</td><td>30-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	35	</td><td><span class="pointer" onclick="descargar_pago(486024)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13010102	</td><td>7124- F022-2552 | CAPACITACIÓN Y PERFECCIONAMIENTO DOCENTE CARLOS VA |	</td><td align="right"><b>2,580.00	</b></td><td>Universidad Privada Norbert Wiener S.A. Universidad Norbert Wiener 	</td><td><b>20466246370	</b></td><td>FACTURA	</td><td>F022-2552	</td><td>000000002552	</td><td align="right"><b>2,580.00	</td><td align="right"><b>0.00	</b></td><td>23-OCT-24	</td><td>04-NOV-24	</td><td>RC 23	</td><td align="right"><b>   2,580.00	</b></td><td align="right">       0.00	</td><td>000576520	</td><td>05-NOV-24	</td><td>MI 73	</td><td>31-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	36	</td><td><span class="pointer" onclick="descargar_pago(522400)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13020105	</td><td>7124- F090-2985 | PAUL ALVAREZ PLAN CAPACITACIÓN DOCENTE | PAUL ALVARE	</td><td align="right"><b>2,238.23	</b></td><td>Pontificia Universidad Catolica Del Peru - 	</td><td><b>20155945860	</b></td><td>FACTURA	</td><td>F090-2985	</td><td>000000002985	</td><td align="right"><b>2,238.23	</td><td align="right"><b>0.00	</b></td><td>16-NOV-24	</td><td>23-DIC-24	</td><td>RC 13	</td><td align="right"><b>   2,238.23	</b></td><td align="right">       0.00	</td><td>000577510	</td><td>24-DIC-24	</td><td>MI 37	</td><td>24-DIC-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	37	</td><td><span class="pointer" onclick="descargar_pago(523663)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4117005	</td><td>13030104	</td><td>7124- F002-814 | CAPACITACIÓN Y PERFECCIONAMIENTO PROFESIONAL - CELINA RAMIREZ VEGA	</td><td align="right"><b>2,610.00	</b></td><td>Universidad Femenina Del Sagrado Corazon Universidad Femenina Del Sagrado Corazon 	</td><td><b>20141230329	</b></td><td>FACTURA	</td><td>F002-814	</td><td>000000000814	</td><td align="right"><b>2,610.00	</td><td align="right"><b>0.00	</b></td><td>06-DIC-24	</td><td>21-DIC-24	</td><td>RC 17	</td><td align="right"><b>   2,610.00	</b></td><td align="right">       0.00	</td><td>4033189	</td><td>26-DIC-24	</td><td>MI 58	</td><td>26-DIC-24	</td><td>	</td><td>	</td></tr>
+                  
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal_docs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group list-group-flush " id="lista_docs">
+                
+                
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modal_error" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-danger text" id="staticBackdropLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Error!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="">Token caducado! <i class="fa fa-frown-o" aria-hidden="true"></i></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+
+
+
+
+
+    
+
+<script>
+
+let list_docs_html ="";
+let _TOKEN = "t3iNDv4zXPNSbsYTJolNowyO8Ud0hq";   
+//c6daGqeTgtdERDMVDatRto9gnynoGa
+
+const myModal = new bootstrap.Modal(document.getElementById('modal_docs'), {
+  keyboard: true,
+  focus: true
+});
+
+const myModalError = new bootstrap.Modal(document.getElementById('modal_error'), {
+  keyboard: true,
+  focus: true
+});
+
+
+
+
+function    descargar_compra(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+        window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+    }
+    };
+}
+
+function descargar_pago(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    list_docs_html = "";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+
+        data.forEach((file, index) => {
+            let _doc = "";
+            if(file.tipo=="3"){_doc="Compra"}else if(file.tipo=="1" || file.tipo=="12"){_doc="Pago TLC"}else if(file.tipo=="5"){_doc = "Sustento"}else if(file.tipo=="14"){_doc = "Detrac."}
+            list_docs_html += '<li class="list-group-item"><span class="badge text-bg-success">'+_doc+' </span> '+file.nombre+' <a class="badge text-bg-warning" href="'+file.url+'" target="_blank"> Ver doc <i class="fa fa-download" aria-hidden="true"></i></a></li>';
+        });
+
+        document.getElementById("lista_docs").innerHTML = list_docs_html;
+        
+        console.log("abriendo modal");
+
+
+
+        myModal.show();
+        //window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+        myModalError.show();
+    }
+    };
+}
+
+
+
+
+function doSearch(){
+
+  const tableReg = document.getElementById('datos_compras');
+
+  const searchText = document.getElementById('searchTerm').value.toLowerCase();
+
+  let total = 0;
+
+
+
+  // Recorremos todas las filas con contenido de la tabla
+
+  for (let i = 1; i < tableReg.rows.length; i++) {
+
+      // Si el td tiene la clase "noSearch" no se busca en su cntenido
+
+      if (tableReg.rows[i].classList.contains("noSearch")) {
+
+          continue;
+
+      }
+
+
+
+      let found = false;
+
+      const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+
+      // Recorremos todas las celdas
+
+      for (let j = 0; j < cellsOfRow.length && !found; j++) {
+
+          const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+
+          // Buscamos el texto en el contenido de la celda
+
+          if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+
+              found = true;
+
+              total++;
+
+          }
+
+      }
+
+      if (found) {
+
+      tableReg.rows[i].style.display = '';
+
+      } else {
+
+      // si no ha encontrado ninguna coincidencia, esconde la
+
+      // fila de la tabla
+
+      tableReg.rows[i].style.display = 'none';
+
+      }
+
+  }
+  
+  // mostramos las coincidencias
+
+  const msj_busqueda = document.getElementById("text_resultados");
+
+  msj_busqueda.classList.remove("hide", "red");
+
+  if (searchText == "") {
+
+    msj_busqueda.classList.add("hide");
+
+  } else if (total) {
+
+    msj_busqueda.innerHTML="Hay <b>"+total+"</b> coincidencia"+((total>1)?"s":"");
+
+  } else {
+
+    msj_busqueda.classList.add("red");
+
+    msj_busqueda.innerHTML="<b>0</b> coincidencias";
+
+  }
+
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

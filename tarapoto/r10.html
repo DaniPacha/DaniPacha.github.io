@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inv. e Innov. TARAPOTO</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../aide-excel.ico" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    
+</head>
+<style>
+    .pointer{
+        cursor: pointer;
+    }
+    .pointer:hover{
+        color: yellow;
+    }
+    .table-hover.table-hover-dark > tbody > tr:hover > * {
+        background-color: #484848;
+        color: #ddd;
+        transition: all 0.3s;
+    }
+    
+    .pl-5{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    #text_resultados{
+      color: white;
+      line-height: 36px;
+      min-width: 180px;
+      text-align: right;
+      margin-right: 10px;;
+    }
+
+    .hide {display:none;}
+
+    .red {color:Red !important;}
+</style>
+<body>
+    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg bg-light">
+        <div class="container-fluid container-xxl">
+          <a class="navbar-brand" href="index.html">AIDE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="r4.html">R4 Capac.Docente</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="r8.html">R8 Progr. Deportivos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="r9.html">R9 Proy. Social</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">R10 Inv. e Innov.</a>
+              </li>    
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="r2.html">R2.2 R3 Infra. y Equipam.</a>
+              </li>           
+            </ul>
+            <form class="d-flex" role="search">
+              <span id="text_resultados" class="inline-block"></span>
+              <input id="searchTerm" class="form-control me-2" type="search" placeholder="Buscar..."  onkeyup="doSearch()" aria-label="Search">
+              <!-- <button class="btn btn-outline-primary" type="button">Buscar</button> -->
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <h1 class="">Inv. e Innov. en Ciencia y Tec. (4142035-3) TARAPOTO<span class="badge text-bg-light pointer" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.33em;"> <i class="fa fa-chevron-down" aria-hidden="true"></i></span></h1>
+        <div class="collapse" id="collapseExample">
+            <input id="f_token" type="text" class="form-control" placeholder="ahjHGFkjGKJG54JHGJ57HKGDFdwsL65" value="X">
+          </div>
+        <!-- <hr> -->
+        <div class="table-responsive"  style="max-height: 800px">
+            <table id="datos_compras" class="table table-responsive table-responsive-sm table-striped-columns table-hover table-hover-dark" style="font-size: 10.8px;" >
+                <thead>
+                    <tr class="table-primary ">
+                        <th>#</th>
+                        <th>Archivos</th>
+                        <th>Cuenta-Cta.Cte</th>  
+                        <th>Departm.</th>  
+                        <th>Descripcion Asiento</th>  
+                        <th>Imp Asiento</th>  
+                        <th>Razon Social</th>  
+                        <th>RUC</th>  
+                        <th>Tipo Comp.</th>  
+                        <th>Serie-Numero</th>  
+                        <th>Nro Compr.</th>    
+                        <th>Imp.Total Compr.</th>   
+                        <th>IGV Compr.</th>   
+                        <th>Fecha Comp.</th>  
+                        <th>Fecha Prov.</th> 
+                        <th>Lote Compra</th>  
+                        <th>Imp Pago</th>  
+                        <th>Imp Pago Dolares</th>  
+                        <th>Num Oper.</th>  
+                        <th>Fecha Pago</th>  
+                        <th>Lote Pago</th> 
+                        <th>Fecha Lote Pago</th>  
+                        <th>Retención</th> 
+                        <th>Detracción</th>  
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr><td align="right">	1	</td><td><span class="pointer" onclick="descargar_pago(316367)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63010902	</td><td>7124- 0015-60203198319 | III Encuentro Investigadores UPeU | COMPRA DE	</td><td align="right"><b>758.26	</b></td><td>Star Up S.A. Star Peru 	</td><td><b>20342868844	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0015-60203198319	</td><td>060203198319	</td><td align="right"><b>758.26	</td><td align="right"><b>107.67	</b></td><td>29/01/24	</td><td>30/01/24	</td><td>RCT 12	</td><td align="right"><b>     758.26	</b></td><td align="right">     801.12	</td><td>33073	</td><td>31/01/24	</td><td>MBT 48	</td><td>31/01/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	2	</td><td><span class="pointer" onclick="descargar_pago(316369)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>61010105	</td><td>7124- 0015-60203198318 | III Encuentro Investigadores/Salinas | COMPRA	</td><td align="right"><b>758.26	</b></td><td>Star Up S.A. Star Peru 	</td><td><b>20342868844	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0015-60203198318	</td><td>060203198318	</td><td align="right"><b>758.26	</td><td align="right"><b>107.67	</b></td><td>29/01/24	</td><td>30/01/24	</td><td>RCT 12	</td><td align="right"><b>     758.26	</b></td><td align="right">     801.12	</td><td>33073	</td><td>31/01/24	</td><td>MBT 48	</td><td>31/01/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	3	</td><td><span class="pointer" onclick="descargar_pago(316371)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63040901	</td><td>7124- 0015-60203198320 | III Encuentro Investigadores/Cunza | COMPRA D	</td><td align="right"><b>758.26	</b></td><td>Star Up S.A. Star Peru 	</td><td><b>20342868844	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0015-60203198320	</td><td>060203198320	</td><td align="right"><b>758.26	</td><td align="right"><b>107.67	</b></td><td>29/01/24	</td><td>30/01/24	</td><td>RCT 12	</td><td align="right"><b>     758.26	</b></td><td align="right">     801.12	</td><td>33073	</td><td>31/01/24	</td><td>MBT 48	</td><td>31/01/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	4	</td><td><span class="pointer" onclick="descargar_pago(316375)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63010901	</td><td>7124- 0015-60203198547 | III Encuentro Investigadores/J. Quispe | COMP	</td><td align="right"><b>758.26	</b></td><td>S.A.C. Star Up	</td><td><b>20342868844	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0015-60203198547	</td><td>060203198547	</td><td align="right"><b>758.26	</td><td align="right"><b>107.67	</b></td><td>29/01/24	</td><td>30/01/24	</td><td>RCT 12	</td><td align="right"><b>     758.26	</b></td><td align="right">     801.12	</td><td>33073	</td><td>31/01/24	</td><td>MBT 48	</td><td>31/01/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	5	</td><td><span class="pointer" onclick="descargar_pago(425918)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020903	</td><td>7124- F001-6540 | Workshop/Atención Investigadores | Workshop de inves	</td><td align="right"><b>296.00	</b></td><td>Suchiche S.A.C. Suchiche S.A.C. 	</td><td><b>20601986028	</b></td><td>FACTURA	</td><td>F001-6540	</td><td>000000006540	</td><td align="right"><b>296.00	</td><td align="right"><b>0.00	</b></td><td>22/07/24	</td><td>31/07/24	</td><td>RCT 15	</td><td align="right"><b>     296.00	</b></td><td align="right">       0.00	</td><td>35608	</td><td>29/08/24	</td><td>MIT 39	</td><td>29/08/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	6	</td><td><span class="pointer" onclick="descargar_pago(425923)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020903	</td><td>7124- FA01-1554 | Worshop/Atención Ponentes | WORKSHOP DE INVESTIGACIÓ	</td><td align="right"><b>52.00	</b></td><td>Restaurantes Pescados Y Ajies Fusion E.I.R.L. Restaurantes Pescados Y Ajies Fusion E.I.R.L. 	</td><td><b>20611676698	</b></td><td>FACTURA	</td><td>FA01-1554	</td><td>000000001554	</td><td align="right"><b>52.00	</td><td align="right"><b>0.00	</b></td><td>23/07/24	</td><td>31/07/24	</td><td>RCT 15	</td><td align="right"><b>      52.00	</b></td><td align="right">       0.00	</td><td>036242	</td><td>08/08/24	</td><td>MBT 14	</td><td>08/08/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	7	</td><td><span class="pointer" onclick="descargar_pago(425925)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020903	</td><td>7124- FF03-146 | Workshop/Atención ponentes | WORKSHOP DE INVESTIGACIÓ	</td><td align="right"><b>40.00	</b></td><td>Diaz Lopez Teofilo - 	</td><td><b>10423465510	</b></td><td>FACTURA	</td><td>FF03-146	</td><td>000000000146	</td><td align="right"><b>40.00	</td><td align="right"><b>0.00	</b></td><td>21/07/24	</td><td>31/07/24	</td><td>RCT 15	</td><td align="right"><b>      40.00	</b></td><td align="right">       0.00	</td><td>036242	</td><td>08/08/24	</td><td>MBT 14	</td><td>08/08/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	8	</td><td><span class="pointer" onclick="descargar_pago(425927)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020903	</td><td>7124- F001-18922 | Workshop/Atención Ponentes | WORKSHOP DE INVESTIGAC	</td><td align="right"><b>70.00	</b></td><td>Danza S.A.C. Danza S.A.C. 	</td><td><b>20609469626	</b></td><td>FACTURA	</td><td>F001-18922	</td><td>000000018922	</td><td align="right"><b>70.00	</td><td align="right"><b>0.00	</b></td><td>21/07/24	</td><td>31/07/24	</td><td>RCT 15	</td><td align="right"><b>      70.00	</b></td><td align="right">       0.00	</td><td>036242	</td><td>08/08/24	</td><td>MBT 14	</td><td>08/08/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	9	</td><td><span class="pointer" onclick="descargar_pago(425930)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020903	</td><td>7124- BF07-4684 | Workshop/Atención Ponentes | WORKSHOP DE INVESTIGACI	</td><td align="right"><b>96.80	</b></td><td>Universidad Peruana Unión  	</td><td><b>20138122256	</b></td><td>BOLETA DE VENTA	</td><td>BF07-4684	</td><td>000000004684	</td><td align="right"><b>96.80	</td><td align="right"><b>0.00	</b></td><td>18/07/24	</td><td>31/07/24	</td><td>RCT 15	</td><td align="right"><b>      96.80	</b></td><td align="right">       0.00	</td><td>036242	</td><td>08/08/24	</td><td>MBT 14	</td><td>08/08/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	10	</td><td><span class="pointer" onclick="descargar_pago(425933)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020903	</td><td>7124- BF07-4685 | Workshop/Atención Ponentes | WORKSHOP DE INVESTIGACI	</td><td align="right"><b>81.00	</b></td><td>Universidad Peruana Unión  	</td><td><b>20138122256	</b></td><td>BOLETA DE VENTA	</td><td>BF07-4685	</td><td>000000004685	</td><td align="right"><b>81.00	</td><td align="right"><b>0.00	</b></td><td>18/07/24	</td><td>31/07/24	</td><td>RCT 15	</td><td align="right"><b>      81.00	</b></td><td align="right">       0.00	</td><td>036242	</td><td>08/08/24	</td><td>MBT 14	</td><td>08/08/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	11	</td><td><span class="pointer" onclick="descargar_pago(427746)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020903	</td><td>7124- FA01-978 | Workshop/Atención Ponentes | Workshop de investigació	</td><td align="right"><b>380.00	</b></td><td>Corporacion Hotelera Del Oriente S.A.C. Hotel Nilas 	</td><td><b>20404344707	</b></td><td>FACTURA	</td><td>FA01-978	</td><td>000000000978	</td><td align="right"><b>380.00	</td><td align="right"><b>0.00	</b></td><td>27/07/24	</td><td>31/07/24	</td><td>RCT 15	</td><td align="right"><b>     380.00	</b></td><td align="right">       0.00	</td><td>036242	</td><td>08/08/24	</td><td>MBT 14	</td><td>08/08/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	12	</td><td><span class="pointer" onclick="descargar_pago(427772)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020903	</td><td>7124- FA04-580617 | Workshop/Atención Participantes | Workshop  Invest	</td><td align="right"><b>48.15	</b></td><td>Plaza Vea Oriente S.A.C. - 	</td><td><b>20601233488	</b></td><td>FACTURA	</td><td>FA04-580617	</td><td>000000580617	</td><td align="right"><b>48.15	</td><td align="right"><b>0.00	</b></td><td>19/07/24	</td><td>31/07/24	</td><td>RCT 15	</td><td align="right"><b>      48.15	</b></td><td align="right">       0.00	</td><td>036242	</td><td>08/08/24	</td><td>MBT 14	</td><td>08/08/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	13	</td><td><span class="pointer" onclick="descargar_pago(427781)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020903	</td><td>7124- FF02-1893 | Workshop/Atención Participantes | Workshop de Invest	</td><td align="right"><b>16.50	</b></td><td>Bioselva Pack S.A.C. Bioselva Pack S.A.C. 	</td><td><b>20608956868	</b></td><td>FACTURA	</td><td>FF02-1893	</td><td>000000001893	</td><td align="right"><b>16.50	</td><td align="right"><b>0.00	</b></td><td>19/07/24	</td><td>31/07/24	</td><td>RCT 15	</td><td align="right"><b>      16.50	</b></td><td align="right">       0.00	</td><td>036242	</td><td>08/08/24	</td><td>MBT 14	</td><td>08/08/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	14	</td><td><span class="pointer" onclick="descargar_pago(509811)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020902	</td><td>7124- F001-1230 | Worshop/Ponente | Participación como ponente en Work	</td><td align="right"><b>25.90	</b></td><td>Francisco Lindo Gutarra	</td><td><b>10759290386	</b></td><td>FACTURA	</td><td>F001-1230	</td><td>000000001230	</td><td align="right"><b>25.90	</td><td align="right"><b>2.35	</b></td><td>20/11/24	</td><td>25/11/24	</td><td>RCT 10	</td><td align="right"><b>      25.90	</b></td><td align="right">       0.00	</td><td>038094	</td><td>16/12/24	</td><td>MIT 14	</td><td>16/12/24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	15	</td><td><span class="pointer" onclick="descargar_pago(509848)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>63020902	</td><td>7124- F006-50731 | Workshop/Ponente | Participación como ponente en Wo	</td><td align="right"><b>49.90	</b></td><td>Corporacion Peruana De Restaurantes S.A. Corperes S.A. - Papa Johns 	</td><td><b>20505897812	</b></td><td>FACTURA	</td><td>F006-50731	</td><td>000000050731	</td><td align="right"><b>49.90	</td><td align="right"><b>7.42	</b></td><td>21/11/24	</td><td>25/11/24	</td><td>RCT 10	</td><td align="right"><b>      49.90	</b></td><td align="right">       0.00	</td><td>038094	</td><td>16/12/24	</td><td>MIT 14	</td><td>16/12/24	</td><td>	</td><td>	</td></tr>
+                                    
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal_docs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group list-group-flush " id="lista_docs">
+                
+                
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modal_error" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-danger text" id="staticBackdropLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Error!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="">Token caducado! <i class="fa fa-frown-o" aria-hidden="true"></i></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+
+
+
+
+
+    
+
+<script>
+
+let list_docs_html ="";
+let _TOKEN = "t3iNDv4zXPNSbsYTJolNowyO8Ud0hq";   
+//c6daGqeTgtdERDMVDatRto9gnynoGa
+
+const myModal = new bootstrap.Modal(document.getElementById('modal_docs'), {
+  keyboard: true,
+  focus: true
+});
+
+const myModalError = new bootstrap.Modal(document.getElementById('modal_error'), {
+  keyboard: true,
+  focus: true
+});
+
+
+
+
+function    descargar_compra(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+        window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+    }
+    };
+}
+
+function descargar_pago(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    list_docs_html = "";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+
+        data.forEach((file, index) => {
+            let _doc = "";
+            if(file.tipo=="3"){_doc="Compra"}else if(file.tipo=="1" || file.tipo=="12"){_doc="Pago TLC"}else if(file.tipo=="5"){_doc = "Sustento"}else if(file.tipo=="14"){_doc = "Detrac."}
+            list_docs_html += '<li class="list-group-item"><span class="badge text-bg-success">'+_doc+' </span> '+file.nombre+' <a class="badge text-bg-warning" href="'+file.url+'" target="_blank"> Ver doc <i class="fa fa-download" aria-hidden="true"></i></a></li>';
+        });
+
+        document.getElementById("lista_docs").innerHTML = list_docs_html;
+        
+        console.log("abriendo modal");
+
+
+
+        myModal.show();
+        //window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+        myModalError.show();
+    }
+    };
+}
+
+
+
+
+function doSearch(){
+
+  const tableReg = document.getElementById('datos_compras');
+
+  const searchText = document.getElementById('searchTerm').value.toLowerCase();
+
+  let total = 0;
+
+
+
+  // Recorremos todas las filas con contenido de la tabla
+
+  for (let i = 1; i < tableReg.rows.length; i++) {
+
+      // Si el td tiene la clase "noSearch" no se busca en su cntenido
+
+      if (tableReg.rows[i].classList.contains("noSearch")) {
+
+          continue;
+
+      }
+
+
+
+      let found = false;
+
+      const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+
+      // Recorremos todas las celdas
+
+      for (let j = 0; j < cellsOfRow.length && !found; j++) {
+
+          const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+
+          // Buscamos el texto en el contenido de la celda
+
+          if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+
+              found = true;
+
+              total++;
+
+          }
+
+      }
+
+      if (found) {
+
+      tableReg.rows[i].style.display = '';
+
+      } else {
+
+      // si no ha encontrado ninguna coincidencia, esconde la
+
+      // fila de la tabla
+
+      tableReg.rows[i].style.display = 'none';
+
+      }
+
+  }
+  
+  // mostramos las coincidencias
+
+  const msj_busqueda = document.getElementById("text_resultados");
+
+  msj_busqueda.classList.remove("hide", "red");
+
+  if (searchText == "") {
+
+    msj_busqueda.classList.add("hide");
+
+  } else if (total) {
+
+    msj_busqueda.innerHTML="Hay <b>"+total+"</b> coincidencia"+((total>1)?"s":"");
+
+  } else {
+
+    msj_busqueda.classList.add("red");
+
+    msj_busqueda.innerHTML="<b>0</b> coincidencias";
+
+  }
+
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

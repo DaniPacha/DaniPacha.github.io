@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investigación LIMA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../aide-excel.ico" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    
+</head>
+<style>
+    .pointer{
+        cursor: pointer;
+    }
+    .pointer:hover{
+        color: yellow;
+    }
+    .table-hover.table-hover-dark > tbody > tr:hover > * {
+        background-color: #484848;
+        color: #ddd;
+        transition: all 0.3s;
+    }
+    
+    .pl-5{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    #text_resultados{
+      color: white;
+      line-height: 36px;
+      min-width: 180px;
+      text-align: right;
+      margin-right: 10px;;
+    }
+
+    .hide {display:none;}
+
+    .red {color:Red !important;}
+</style>
+<body>
+    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg bg-light">
+        <div class="container-fluid container-xxl">
+          <a class="navbar-brand" href="index.html">AIDE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="perfeccionamiento.html">Perfeccionamiento</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="programas_deportivos.html">Progr. Deportivos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="proyeccion_social.html">Proyección Social</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Investigación</a>
+              </li>   
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="desarrollo_docente.html">Desarrollo Doc. Investig.</a>
+              </li>             
+            </ul>
+            <form class="d-flex" role="search">
+              <span id="text_resultados" class="inline-block"></span>
+              <input id="searchTerm" class="form-control me-2" type="search" placeholder="Buscar..."  onkeyup="doSearch()" aria-label="Search">
+              <!-- <button class="btn btn-outline-primary" type="button">Buscar</button> -->
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <h1 class="">Investigación (4121004) LIMA<span class="badge text-bg-light pointer" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.33em;"> <i class="fa fa-chevron-down" aria-hidden="true"></i></span></h1>
+        <div class="collapse" id="collapseExample">
+            <input id="f_token" type="text" class="form-control" placeholder="ahjHGFkjGKJG54JHGJ57HKGDFdwsL65" value="X">
+          </div>
+        <!-- <hr> -->
+        <div class="table-responsive"  style="max-height: 800px">
+            <table id="datos_compras" class="table table-responsive table-responsive-sm table-striped-columns table-hover table-hover-dark" style="font-size: 10.8px;" >
+                <thead>
+                    <tr class="table-primary ">
+                        <th>#</th>
+                        <th>Archivos</th>
+                        <th>Cuenta-Cta.Cte</th>  
+                        <th>Departm.</th>  
+                        <th>Descripcion Asiento</th>  
+                        <th>Imp Asiento</th>  
+                        <th>Razon Social</th>  
+                        <th>RUC</th>  
+                        <th>Tipo Comp.</th>  
+                        <th>Serie-Numero</th>  
+                        <th>Nro Compr.</th>    
+                        <th>Imp.Total Compr.</th>   
+                        <th>IGV Compr.</th>   
+                        <th>Fecha Comp.</th>  
+                        <th>Fecha Prov.</th> 
+                        <th>Lote Compra</th>  
+                        <th>Imp Pago</th>  
+                        <th>Imp Pago Dolares</th>  
+                        <th>Num Oper.</th>  
+                        <th>Fecha Pago</th>  
+                        <th>Lote Pago</th> 
+                        <th>Fecha Lote Pago</th>  
+                        <th>Retención</th> 
+                        <th>Detracción</th>  
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr><td align="right">	1	</td><td><span class="pointer" onclick="descargar_pago(367389)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>13030901	</td><td>7124- F250-610 | capacitación docentes investigadores | capacitación d	</td><td align="right"><b>600.00	</b></td><td>Universidad Peruana Cayetano Heredia U.P.C.H. 	</td><td><b>20110768151	</b></td><td>FACTURA	</td><td>F250-610	</td><td>000000000610	</td><td align="right"><b>600.00	</td><td align="right"><b>0.00	</b></td><td>22-ABR-24	</td><td>23-ABR-24	</td><td>RC 17	</td><td align="right"><b>     600.00	</b></td><td align="right">       0.00	</td><td>2010331	</td><td>25-ABR-24	</td><td>MB 48	</td><td>25-ABR-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	2	</td><td><span class="pointer" onclick="descargar_pago(421719)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>13030901	</td><td>7124- F250-879 | capacitacion | capacitacion	</td><td align="right"><b>680.00	</b></td><td>Universidad Peruana Cayetano Heredia U.P.C.H. 	</td><td><b>20110768151	</b></td><td>FACTURA	</td><td>F250-879	</td><td>000000000879	</td><td align="right"><b>680.00	</td><td align="right"><b>0.00	</b></td><td>12-JUL-24	</td><td>01-AGO-24	</td><td>RC 22	</td><td align="right"><b>     680.00	</b></td><td align="right">       0.00	</td><td>000573002	</td><td>07-AGO-24	</td><td>MB 20	</td><td>07-AGO-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	3	</td><td><span class="pointer" onclick="descargar_pago(498902)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- E001-103 | SERVICIO DE ANALISIS DE LABORATORIO, HEMOGRAMA COM | 	</td><td align="right"><b>600.00	</b></td><td>Alvaro Luque Arapa	</td><td><b>10421930932	</b></td><td>FACTURA	</td><td>E001-103	</td><td>000000000103	</td><td align="right"><b>600.00	</td><td align="right"><b>91.53	</b></td><td>28-OCT-24	</td><td>19-NOV-24	</td><td>RC 10	</td><td align="right"><b>     600.00	</b></td><td align="right">       0.00	</td><td>000576552	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	4	</td><td><span class="pointer" onclick="descargar_pago(498929)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- E001-102 | SERVICIO DE ANALISIS DE LABORATORIO, HEMOGRAMA COM | 	</td><td align="right"><b>600.00	</b></td><td>Alvaro Luque Arapa	</td><td><b>10421930932	</b></td><td>FACTURA	</td><td>E001-102	</td><td>000000000102	</td><td align="right"><b>600.00	</td><td align="right"><b>91.53	</b></td><td>27-OCT-24	</td><td>19-NOV-24	</td><td>RC 10	</td><td align="right"><b>     600.00	</b></td><td align="right">       0.00	</td><td>000576552	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	5	</td><td><span class="pointer" onclick="descargar_pago(498948)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- E001-104 | SERVICIO DE ANALISIS DE LABORATORIO, HEMOGRAMA COM | 	</td><td align="right"><b>300.00	</b></td><td>Alvaro Luque Arapa	</td><td><b>10421930932	</b></td><td>FACTURA	</td><td>E001-104	</td><td>000000000104	</td><td align="right"><b>300.00	</td><td align="right"><b>45.76	</b></td><td>04-NOV-24	</td><td>19-NOV-24	</td><td>RC 10	</td><td align="right"><b>     300.00	</b></td><td align="right">       0.00	</td><td>000576552	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	6	</td><td><span class="pointer" onclick="descargar_pago(499099)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- FFF1-7315 | MUESTRAS DGR - - - NRO REMITO:26483 - DESTINO: LIM |	</td><td align="right"><b>100.00	</b></td><td>Jordan Courier Sociedad Comercial De Responsabilidad Limitada Jordan Courier Sociedad Comercial De Responsabilidad Limitada 	</td><td><b>20448396526	</b></td><td>FACTURA	</td><td>FFF1-7315	</td><td>000000007315	</td><td align="right"><b>100.00	</td><td align="right"><b>15.25	</b></td><td>06-NOV-24	</td><td>19-NOV-24	</td><td>RC 10	</td><td align="right"><b>     100.00	</b></td><td align="right">       0.00	</td><td>000576552	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	7	</td><td><span class="pointer" onclick="descargar_pago(511020)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- F023-178582 | ALIMENTACION - PICB12 - RESPONSABLE DEL PROYECTO -	</td><td align="right"><b>38.70	</b></td><td>S.A.C. Lucha Partners	</td><td><b>20600593685	</b></td><td>FACTURA	</td><td>F023-178582	</td><td>000000178582	</td><td align="right"><b>38.70	</td><td align="right"><b>5.57	</b></td><td>21-NOV-24	</td><td>28-NOV-24	</td><td>RC 21	</td><td align="right"><b>      38.70	</b></td><td align="right">       0.00	</td><td>000577585	</td><td>28-NOV-24	</td><td>MI 57	</td><td>27-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	8	</td><td><span class="pointer" onclick="descargar_pago(511027)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- E001-50 | ANALISIS DE LABORATORIO HEMATOLOGIA Y BIOQUIMICA - | A	</td><td align="right"><b>650.00	</b></td><td>Laboratorio Muñoz Venero E.I.R.L. Laboratorio Muñoz Venero E.I.R.L. 	</td><td><b>20606102098	</b></td><td>FACTURA	</td><td>E001-50	</td><td>000000000050	</td><td align="right"><b>650.00	</td><td align="right"><b>99.15	</b></td><td>22-NOV-24	</td><td>28-NOV-24	</td><td>RC 21	</td><td align="right"><b>     650.00	</b></td><td align="right">       0.00	</td><td>000577585	</td><td>28-NOV-24	</td><td>MI 57	</td><td>27-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	9	</td><td><span class="pointer" onclick="descargar_pago(511032)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- E001-51 | ANALISIS DE LABORATORIO HEMATOLOGIA Y BIOQUIMICO - | A	</td><td align="right"><b>650.00	</b></td><td>Laboratorio Muñoz Venero E.I.R.L. Laboratorio Muñoz Venero E.I.R.L. 	</td><td><b>20606102098	</b></td><td>FACTURA	</td><td>E001-51	</td><td>000000000051	</td><td align="right"><b>650.00	</td><td align="right"><b>99.15	</b></td><td>22-NOV-24	</td><td>28-NOV-24	</td><td>RC 21	</td><td align="right"><b>     650.00	</b></td><td align="right">       0.00	</td><td>000577585	</td><td>28-NOV-24	</td><td>MI 57	</td><td>27-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	10	</td><td><span class="pointer" onclick="descargar_pago(511036)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- E001-790 | ALOJAMIENTO DE UNA HABITACION POR DOS NOCHES DE LO | 	</td><td align="right"><b>180.00	</b></td><td>Rodriguez Bocangel Maria Esperanza Rodriguez Bocangel Maria Esperanza 	</td><td><b>10297121451	</b></td><td>FACTURA	</td><td>E001-790	</td><td>000000000790	</td><td align="right"><b>180.00	</td><td align="right"><b>16.36	</b></td><td>23-NOV-24	</td><td>28-NOV-24	</td><td>RC 21	</td><td align="right"><b>     180.00	</b></td><td align="right">       0.00	</td><td>000577585	</td><td>28-NOV-24	</td><td>MI 57	</td><td>27-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	11	</td><td><span class="pointer" onclick="descargar_pago(511042)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- F002-1428 | ALIMENTACION - PICB12 - RESPONSABLE DEL PROYECTO - |	</td><td align="right"><b>23.00	</b></td><td>Fernando Alvaro Massi	</td><td><b>10769052106	</b></td><td>FACTURA	</td><td>F002-1428	</td><td>000000001428	</td><td align="right"><b>23.00	</td><td align="right"><b>2.09	</b></td><td>21-NOV-24	</td><td>28-NOV-24	</td><td>RC 21	</td><td align="right"><b>      23.00	</b></td><td align="right">       0.00	</td><td>000577585	</td><td>28-NOV-24	</td><td>MI 57	</td><td>27-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	12	</td><td><span class="pointer" onclick="descargar_pago(511046)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- F002-1438 | ALIMENTACION - PICB12 - RESPONSABLE DEL PROYECTO - |	</td><td align="right"><b>20.00	</b></td><td>Fernando Alvaro Massi	</td><td><b>10769052106	</b></td><td>FACTURA	</td><td>F002-1438	</td><td>000000001438	</td><td align="right"><b>20.00	</td><td align="right"><b>1.82	</b></td><td>22-NOV-24	</td><td>28-NOV-24	</td><td>RC 21	</td><td align="right"><b>      20.00	</b></td><td align="right">       0.00	</td><td>000577585	</td><td>28-NOV-24	</td><td>MI 57	</td><td>27-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	13	</td><td><span class="pointer" onclick="descargar_pago(511055)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- FP43-3085 | ALIMENTACION -  PICB12 - RESPONSABLE DEL PROYECTO  |	</td><td align="right"><b>10.90	</b></td><td>Telepizza Andina S.A.C. Telepizza 	</td><td><b>20538225763	</b></td><td>FACTURA	</td><td>FP43-30805	</td><td>000000030805	</td><td align="right"><b>10.90	</td><td align="right"><b>1.57	</b></td><td>22-NOV-24	</td><td>28-NOV-24	</td><td>RC 21	</td><td align="right"><b>      10.90	</b></td><td align="right">       0.00	</td><td>000577585	</td><td>28-NOV-24	</td><td>MI 57	</td><td>27-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	14	</td><td><span class="pointer" onclick="descargar_pago(511065)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- F002-333 | ALIMENTACION - PICB12 - RESPONSABLE DEL PROYECTO - | 	</td><td align="right"><b>20.00	</b></td><td>Arca Servis S.A.C. Arca Servis S.A.C. 	</td><td><b>20600513860	</b></td><td>FACTURA	</td><td>F002-333	</td><td>000000000333	</td><td align="right"><b>20.00	</td><td align="right"><b>1.82	</b></td><td>23-NOV-24	</td><td>28-NOV-24	</td><td>RC 21	</td><td align="right"><b>      20.00	</b></td><td align="right">       0.00	</td><td>000577585	</td><td>28-NOV-24	</td><td>MI 57	</td><td>27-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	15	</td><td><span class="pointer" onclick="descargar_pago(511082)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4121004	</td><td>11010208	</td><td>7124- FC23-7954 | ENVIO DE MUESTRAS AREQUIPA A LIMA - CAJA TECNOPOR  |	</td><td align="right"><b>15.00	</b></td><td>Empresa De Transportes Terrestres Issa S.A.C. - Ettissa Empresa De Transportes Terrestres Issa S.A.C. - Ettissa 	</td><td><b>20600352840	</b></td><td>FACTURA	</td><td>FC23-7954	</td><td>000000007954	</td><td align="right"><b>15.00	</td><td align="right"><b>2.29	</b></td><td>25-NOV-24	</td><td>28-NOV-24	</td><td>RC 21	</td><td align="right"><b>      15.00	</b></td><td align="right">       0.00	</td><td>000577585	</td><td>28-NOV-24	</td><td>MI 57	</td><td>27-NOV-24	</td><td>	</td><td>	</td></tr>
+                                    
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal_docs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group list-group-flush " id="lista_docs">
+                
+                
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modal_error" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-danger text" id="staticBackdropLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Error!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="">Token caducado! <i class="fa fa-frown-o" aria-hidden="true"></i></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+
+
+
+
+
+    
+
+<script>
+
+let list_docs_html ="";
+let _TOKEN = "t3iNDv4zXPNSbsYTJolNowyO8Ud0hq";   
+//c6daGqeTgtdERDMVDatRto9gnynoGa
+
+const myModal = new bootstrap.Modal(document.getElementById('modal_docs'), {
+  keyboard: true,
+  focus: true
+});
+
+const myModalError = new bootstrap.Modal(document.getElementById('modal_error'), {
+  keyboard: true,
+  focus: true
+});
+
+
+
+
+function    descargar_compra(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+        window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+    }
+    };
+}
+
+function descargar_pago(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    list_docs_html = "";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+
+        data.forEach((file, index) => {
+            let _doc = "";
+            if(file.tipo=="3"){_doc="Compra"}else if(file.tipo=="1" || file.tipo=="12"){_doc="Pago TLC"}else if(file.tipo=="5"){_doc = "Sustento"}else if(file.tipo=="14"){_doc = "Detrac."}
+            list_docs_html += '<li class="list-group-item"><span class="badge text-bg-success">'+_doc+' </span> '+file.nombre+' <a class="badge text-bg-warning" href="'+file.url+'" target="_blank"> Ver doc <i class="fa fa-download" aria-hidden="true"></i></a></li>';
+        });
+
+        document.getElementById("lista_docs").innerHTML = list_docs_html;
+        
+        console.log("abriendo modal");
+
+
+
+        myModal.show();
+        //window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+        myModalError.show();
+    }
+    };
+}
+
+
+
+
+function doSearch(){
+
+  const tableReg = document.getElementById('datos_compras');
+
+  const searchText = document.getElementById('searchTerm').value.toLowerCase();
+
+  let total = 0;
+
+
+
+  // Recorremos todas las filas con contenido de la tabla
+
+  for (let i = 1; i < tableReg.rows.length; i++) {
+
+      // Si el td tiene la clase "noSearch" no se busca en su cntenido
+
+      if (tableReg.rows[i].classList.contains("noSearch")) {
+
+          continue;
+
+      }
+
+
+
+      let found = false;
+
+      const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+
+      // Recorremos todas las celdas
+
+      for (let j = 0; j < cellsOfRow.length && !found; j++) {
+
+          const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+
+          // Buscamos el texto en el contenido de la celda
+
+          if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+
+              found = true;
+
+              total++;
+
+          }
+
+      }
+
+      if (found) {
+
+      tableReg.rows[i].style.display = '';
+
+      } else {
+
+      // si no ha encontrado ninguna coincidencia, esconde la
+
+      // fila de la tabla
+
+      tableReg.rows[i].style.display = 'none';
+
+      }
+
+  }
+  
+  // mostramos las coincidencias
+
+  const msj_busqueda = document.getElementById("text_resultados");
+
+  msj_busqueda.classList.remove("hide", "red");
+
+  if (searchText == "") {
+
+    msj_busqueda.classList.add("hide");
+
+  } else if (total) {
+
+    msj_busqueda.innerHTML="Hay <b>"+total+"</b> coincidencia"+((total>1)?"s":"");
+
+  } else {
+
+    msj_busqueda.classList.add("red");
+
+    msj_busqueda.innerHTML="<b>0</b> coincidencias";
+
+  }
+
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

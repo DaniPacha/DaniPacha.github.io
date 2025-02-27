@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Des. Doc. Investig LIMA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../aide-excel.ico" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    
+</head>
+<style>
+    .pointer{
+        cursor: pointer;
+    }
+    .pointer:hover{
+        color: yellow;
+    }
+    .table-hover.table-hover-dark > tbody > tr:hover > * {
+        background-color: #484848;
+        color: #ddd;
+        transition: all 0.3s;
+    }
+    
+    .pl-5{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    #text_resultados{
+      color: white;
+      line-height: 36px;
+      min-width: 180px;
+      text-align: right;
+      margin-right: 10px;;
+    }
+
+    .hide {display:none;}
+
+    .red {color:Red !important;}
+</style>
+<body>
+    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg bg-light">
+        <div class="container-fluid container-xxl">
+          <a class="navbar-brand" href="index.html">AIDE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="perfeccionamiento.html">Perfeccionamiento</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="programas_deportivos.html">Progr. Deportivos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="proyeccion_social.html">Proyección Social</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="investigacion.html">Investigación</a>
+              </li>   
+              <li class="nav-item ">
+                <a class="nav-link active" aria-current="page" href="#">Desarrollo Doc. Investig.</a>
+              </li>             
+            </ul>
+            <form class="d-flex" role="search">
+              <span id="text_resultados" class="inline-block"></span>
+              <input id="searchTerm" class="form-control me-2" type="search" placeholder="Buscar..."  onkeyup="doSearch()" aria-label="Search">
+              <!-- <button class="btn btn-outline-primary" type="button">Buscar</button> -->
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <h1 class="">Desarrollo Docente Investig. (4142035-3) LIMA<span class="badge text-bg-light pointer" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.33em;"> <i class="fa fa-chevron-down" aria-hidden="true"></i></span></h1>
+        <div class="collapse" id="collapseExample">
+            <input id="f_token" type="text" class="form-control" placeholder="ahjHGFkjGKJG54JHGJ57HKGDFdwsL65" value="X">
+          </div>
+        <!-- <hr> -->
+        <div class="table-responsive"  style="max-height: 800px">
+            <table id="datos_compras" class="table table-responsive table-responsive-sm table-striped-columns table-hover table-hover-dark" style="font-size: 10.8px;" >
+                <thead>
+                    <tr class="table-primary ">
+                        <th>#</th>
+                        <th>Archivos</th>
+                        <th>Cuenta-Cta.Cte</th>  
+                        <th>Departm.</th>  
+                        <th>Descripcion Asiento</th>  
+                        <th>Imp Asiento</th>  
+                        <th>Razon Social</th>  
+                        <th>RUC</th>  
+                        <th>Tipo Comp.</th>  
+                        <th>Serie-Numero</th>  
+                        <th>Nro Compr.</th>    
+                        <th>Imp.Total Compr.</th>   
+                        <th>IGV Compr.</th>   
+                        <th>Fecha Comp.</th>  
+                        <th>Fecha Prov.</th> 
+                        <th>Lote Compra</th>  
+                        <th>Imp Pago</th>  
+                        <th>Imp Pago Dolares</th>  
+                        <th>Num Oper.</th>  
+                        <th>Fecha Pago</th>  
+                        <th>Lote Pago</th> 
+                        <th>Fecha Lote Pago</th>  
+                        <th>Retención</th> 
+                        <th>Detracción</th>  
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr><td align="right">	1	</td><td><span class="pointer" onclick="descargar_pago(432758)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>13030903	</td><td>7124- EB01-168 | CAPACITACIÓN DE ASESORES Y DICTAMINADORES | CAPACITAC	</td><td align="right"><b>160.00	</b></td><td>Nohemi Elizabeth Hidalgo Anchiraico	</td><td><b>10424677804	</b></td><td>BOLETA DE VENTA	</td><td>EB01-168	</td><td>000000000168	</td><td align="right"><b>160.00	</td><td align="right"><b>0.00	</b></td><td>29-JUL-24	</td><td>22-AGO-24	</td><td>RC 2	</td><td align="right"><b>     160.00	</b></td><td align="right">       0.00	</td><td>1085974	</td><td>23-AGO-24	</td><td>MB 46	</td><td>23-AGO-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	2	</td><td><span class="pointer" onclick="descargar_pago(432780)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>13030903	</td><td>7124- EB01-489 | CAPACITACIÓN DE ASESORES Y DICTAMINADORES | CAPACITAC	</td><td align="right"><b>164.00	</b></td><td>Carmen Rosa Anchiraico Barzola	</td><td><b>10212849800	</b></td><td>BOLETA DE VENTA	</td><td>EB01-489	</td><td>000000000489	</td><td align="right"><b>164.00	</td><td align="right"><b>0.00	</b></td><td>18-JUL-24	</td><td>22-AGO-24	</td><td>RC 2	</td><td align="right"><b>     164.00	</b></td><td align="right">       0.00	</td><td>000574301	</td><td>23-AGO-24	</td><td>MB 46	</td><td>23-AGO-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	3	</td><td><span class="pointer" onclick="descargar_pago(451420)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F023-169337 | Reunión corporativa DGI en campus Tarapoto | Reuni	</td><td align="right"><b>30.40	</b></td><td>Lucha Partners S.A.C. La Lucha,7 Sopas,Republica,Her 	</td><td><b>20600593685	</b></td><td>FACTURA	</td><td>F023-169337	</td><td>000000169337	</td><td align="right"><b>30.40	</td><td align="right"><b>4.45	</b></td><td>28-AGO-24	</td><td>11-SEP-24	</td><td>RC 8	</td><td align="right"><b>      30.40	</b></td><td align="right">       0.00	</td><td>000574344	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	4	</td><td><span class="pointer" onclick="descargar_pago(451427)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-27727 | Reunión corporativa DGI en Tarapoto | Reunión corpo	</td><td align="right"><b>56.00	</b></td><td>La Patarashca S.A.C. La Patarashca 	</td><td><b>20229615603	</b></td><td>FACTURA	</td><td>F001-27727	</td><td>000000027727	</td><td align="right"><b>56.00	</td><td align="right"><b>0.00	</b></td><td>28-AGO-24	</td><td>11-SEP-24	</td><td>RC 8	</td><td align="right"><b>      56.00	</b></td><td align="right">       0.00	</td><td>000574344	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	5	</td><td><span class="pointer" onclick="descargar_pago(451434)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-101 | Reunión corporativa DGI en Tarapoto | Reunión corpora	</td><td align="right"><b>18.00	</b></td><td>Rios Villanueva Gladys - 	</td><td><b>10088087246	</b></td><td>FACTURA	</td><td>F001-101	</td><td>000000000101	</td><td align="right"><b>18.00	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>11-SEP-24	</td><td>RC 8	</td><td align="right"><b>      18.00	</b></td><td align="right">       0.00	</td><td>000574344	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	6	</td><td><span class="pointer" onclick="descargar_pago(451438)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F032-7736 | Reunión corporativa DGI en Tarapoto | Reunión corpor	</td><td align="right"><b>33.64	</b></td><td>Supermercados La Inmaculada S.A.C Supermercados La Inmaculada 	</td><td><b>20404097343	</b></td><td>FACTURA	</td><td>F032-7736	</td><td>000000007736	</td><td align="right"><b>33.64	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>11-SEP-24	</td><td>RC 8	</td><td align="right"><b>      33.64	</b></td><td align="right">       0.00	</td><td>000574344	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	7	</td><td><span class="pointer" onclick="descargar_pago(451442)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F004-29184 | Reunión corporativa DGI en Tarapoto | Reunión corpo	</td><td align="right"><b>32.00	</b></td><td>Supermercados La Inmaculada S.A.C Supermercados La Inmaculada 	</td><td><b>20404097343	</b></td><td>FACTURA	</td><td>F004-29184	</td><td>000000029184	</td><td align="right"><b>32.00	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>11-SEP-24	</td><td>RC 8	</td><td align="right"><b>      32.00	</b></td><td align="right">       0.00	</td><td>000574344	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	8	</td><td><span class="pointer" onclick="descargar_pago(451449)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-19775 | Reunión corporativa DGI en Tarapoto | Reunión corpo	</td><td align="right"><b>52.00	</b></td><td>Danza S.A.C. Danza S.A.C. 	</td><td><b>20609469626	</b></td><td>FACTURA	</td><td>F001-19775	</td><td>000000019775	</td><td align="right"><b>52.00	</td><td align="right"><b>0.00	</b></td><td>31-AGO-24	</td><td>11-SEP-24	</td><td>RC 8	</td><td align="right"><b>      52.00	</b></td><td align="right">       0.00	</td><td>000574344	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	9	</td><td><span class="pointer" onclick="descargar_pago(451617)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-105 | Desayuno-Mg. Benjamin Paredes Guerra-Comisión de S | 	</td><td align="right"><b>18.00	</b></td><td>Rios Villanueva Gladys - 	</td><td><b>10088087246	</b></td><td>FACTURA	</td><td>F001-105	</td><td>000000000105	</td><td align="right"><b>18.00	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>04-SEP-24	</td><td>RC 3	</td><td align="right"><b>      18.00	</b></td><td align="right">       0.00	</td><td>000574944	</td><td>05-SEP-24	</td><td>MB 4	</td><td>05-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	10	</td><td><span class="pointer" onclick="descargar_pago(451630)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-19779 | Almuerzo-Mg. Benjamin Paredes Guerra-Comisión de S 	</td><td align="right"><b>40.00	</b></td><td>Danza S.A.C. Danza S.A.C. 	</td><td><b>20609469626	</b></td><td>FACTURA	</td><td>F001-19779	</td><td>000000019779	</td><td align="right"><b>40.00	</td><td align="right"><b>0.00	</b></td><td>31-AGO-24	</td><td>04-SEP-24	</td><td>RC 3	</td><td align="right"><b>      40.00	</b></td><td align="right">       0.00	</td><td>000574944	</td><td>05-SEP-24	</td><td>MB 4	</td><td>05-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	11	</td><td><span class="pointer" onclick="descargar_pago(451632)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-8663 | Cena-Mg. Benjamin Paredes Guerra-Comisión de Servi |	</td><td align="right"><b>6.00	</b></td><td>Servicios Turisticos Gr S.A.C. - 	</td><td><b>20493869401	</b></td><td>FACTURA	</td><td>F001-8663	</td><td>000000008663	</td><td align="right"><b>6.00	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>04-SEP-24	</td><td>RC 3	</td><td align="right"><b>       6.00	</b></td><td align="right">       0.00	</td><td>000574944	</td><td>05-SEP-24	</td><td>MB 4	</td><td>05-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	12	</td><td><span class="pointer" onclick="descargar_pago(451635)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-19778 | Almuerzo-Dia: 31-08-2024-Mg. Benjamin Paredes Guer 	</td><td align="right"><b>40.00	</b></td><td>Danza S.A.C. Danza S.A.C. 	</td><td><b>20609469626	</b></td><td>FACTURA	</td><td>F001-19778	</td><td>000000019778	</td><td align="right"><b>40.00	</td><td align="right"><b>0.00	</b></td><td>31-AGO-24	</td><td>04-SEP-24	</td><td>RC 3	</td><td align="right"><b>      40.00	</b></td><td align="right">       0.00	</td><td>000574944	</td><td>05-SEP-24	</td><td>MB 4	</td><td>05-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	13	</td><td><span class="pointer" onclick="descargar_pago(451638)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- FA01-1311 | Alojamiento-Dia: 28,29 y 30-08-2024-Mg. Benjamin P |	</td><td align="right"><b>315.00	</b></td><td>Corporacion Hotelera Del Oriente S.A.C. Hotel Nilas 	</td><td><b>20404344707	</b></td><td>FACTURA	</td><td>FA01-1311	</td><td>000000001311	</td><td align="right"><b>315.00	</td><td align="right"><b>0.00	</b></td><td>31-AGO-24	</td><td>04-SEP-24	</td><td>RC 3	</td><td align="right"><b>     315.00	</b></td><td align="right">       0.00	</td><td>000574944	</td><td>05-SEP-24	</td><td>MB 4	</td><td>05-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	14	</td><td><span class="pointer" onclick="descargar_pago(452888)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- FA01-1308 | Reunión corporativa DGI en Tarapoto | Reunión corpor	</td><td align="right"><b>315.00	</b></td><td>Corporacion Hotelera Del Oriente S.A.C. Hotel Nilas 	</td><td><b>20404344707	</b></td><td>FACTURA	</td><td>FA01-1308	</td><td>000000001308	</td><td align="right"><b>315.00	</td><td align="right"><b>0.00	</b></td><td>31-AGO-24	</td><td>11-SEP-24	</td><td>RC 8	</td><td align="right"><b>     315.00	</b></td><td align="right">       0.00	</td><td>000574344	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	15	</td><td><span class="pointer" onclick="descargar_pago(457241)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- FA01-1310 | reunion de coordinacion DGI | reunion de coordinacio	</td><td align="right"><b>315.00	</b></td><td>Corporacion Hotelera Del Oriente S.A.C. Hotel Nilas 	</td><td><b>20404344707	</b></td><td>FACTURA	</td><td>FA01-1310	</td><td>000000001310	</td><td align="right"><b>315.00	</td><td align="right"><b>0.00	</b></td><td>31-AGO-24	</td><td>12-SEP-24	</td><td>RC 9	</td><td align="right"><b>     315.00	</b></td><td align="right">       0.00	</td><td>000574346	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	16	</td><td><span class="pointer" onclick="descargar_pago(457242)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F032-7734 | Reunión corporativa DGI en Tarapoto | Reunión corpor	</td><td align="right"><b>39.41	</b></td><td>Supermercados La Inmaculada S.A.C Supermercados La Inmaculada 	</td><td><b>20404097343	</b></td><td>FACTURA	</td><td>F032-7734	</td><td>000000007734	</td><td align="right"><b>39.41	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>12-SEP-24	</td><td>RC 9	</td><td align="right"><b>      39.41	</b></td><td align="right">       0.00	</td><td>000574346	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	17	</td><td><span class="pointer" onclick="descargar_pago(457243)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-19777 | Reunión corporativa DGI en Tarapoto | Reunión corpo	</td><td align="right"><b>32.00	</b></td><td>Danza S.A.C. Danza S.A.C. 	</td><td><b>20609469626	</b></td><td>FACTURA	</td><td>F001-19777	</td><td>000000019777	</td><td align="right"><b>32.00	</td><td align="right"><b>0.00	</b></td><td>31-AGO-24	</td><td>12-SEP-24	</td><td>RC 9	</td><td align="right"><b>      32.00	</b></td><td align="right">       0.00	</td><td>000574346	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	18	</td><td><span class="pointer" onclick="descargar_pago(457244)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-27729 | Reunión corporativa DGI en Tarapoto | Reunión corpo	</td><td align="right"><b>34.00	</b></td><td>La Patarashca S.A.C. La Patarashca 	</td><td><b>20229615603	</b></td><td>FACTURA	</td><td>F001-27729	</td><td>000000027729	</td><td align="right"><b>34.00	</td><td align="right"><b>0.00	</b></td><td>28-AGO-24	</td><td>12-SEP-24	</td><td>RC 9	</td><td align="right"><b>      34.00	</b></td><td align="right">       0.00	</td><td>000574346	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	19	</td><td><span class="pointer" onclick="descargar_pago(457245)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F023-169340 | Reunión corporativa DGI en Tarapoto | Reunión corp	</td><td align="right"><b>32.00	</b></td><td>S.A.C. Lucha Partners	</td><td><b>20600593685	</b></td><td>FACTURA	</td><td>F023-169340	</td><td>000000169340	</td><td align="right"><b>32.00	</td><td align="right"><b>4.68	</b></td><td>28-AGO-24	</td><td>12-SEP-24	</td><td>RC 9	</td><td align="right"><b>      32.00	</b></td><td align="right">       0.00	</td><td>000574346	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	20	</td><td><span class="pointer" onclick="descargar_pago(457246)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-103 | Reunión corporativa DGI en Tarapoto | Reunión corpora	</td><td align="right"><b>18.00	</b></td><td>Rios Villanueva Gladys - 	</td><td><b>10088087246	</b></td><td>FACTURA	</td><td>F001-103	</td><td>000000000103	</td><td align="right"><b>18.00	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>16-SEP-24	</td><td>RC 11	</td><td align="right"><b>      18.00	</b></td><td align="right">       0.00	</td><td>000574346	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	21	</td><td><span class="pointer" onclick="descargar_pago(457247)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-8664 | Reunión corporativa DGI en Tarapoto | Reunión corpor	</td><td align="right"><b>8.00	</b></td><td>Servicios Turisticos Gr S.A.C. - 	</td><td><b>20493869401	</b></td><td>FACTURA	</td><td>F001-8664	</td><td>000000008664	</td><td align="right"><b>8.00	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>16-SEP-24	</td><td>RC 11	</td><td align="right"><b>       8.00	</b></td><td align="right">       0.00	</td><td>000574346	</td><td>19-SEP-24	</td><td>MI 25	</td><td>13-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	22	</td><td><span class="pointer" onclick="descargar_pago(458284)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- 0544-2170885129 | TICKET AÉREO A TARAPOTO / DGI - ALCIDES FLORES	</td><td align="right"><b>735.85	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2170885129	</td><td>002170885129	</td><td align="right"><b>735.85	</td><td align="right"><b>101.09	</b></td><td>22-AGO-24	</td><td>13-SEP-24	</td><td>RC 10	</td><td align="right"><b>     735.85	</b></td><td align="right">     826.16	</td><td>00159425	</td><td>06-NOV-24	</td><td>MI 73	</td><td>31-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	23	</td><td><span class="pointer" onclick="descargar_pago(458288)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- 0544-2170885128 | TICKET AÉREO A TARAPOTO / DGI - SALOMON HUANCA	</td><td align="right"><b>735.85	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2170885128	</td><td>002170885128	</td><td align="right"><b>735.85	</td><td align="right"><b>101.09	</b></td><td>22-AGO-24	</td><td>13-SEP-24	</td><td>RC 10	</td><td align="right"><b>     735.85	</b></td><td align="right">     826.16	</td><td>00159425	</td><td>06-NOV-24	</td><td>MI 73	</td><td>31-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	24	</td><td><span class="pointer" onclick="descargar_pago(458293)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- 0544-2170885131 | TICKET AÉREO A TARAPOTO / DGI - WILTER CHARMIN	</td><td align="right"><b>735.85	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2170885131	</td><td>002170885131	</td><td align="right"><b>735.85	</td><td align="right"><b>101.09	</b></td><td>22-AGO-24	</td><td>13-SEP-24	</td><td>RC 10	</td><td align="right"><b>     735.85	</b></td><td align="right">     826.16	</td><td>00159425	</td><td>06-NOV-24	</td><td>MI 73	</td><td>31-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	25	</td><td><span class="pointer" onclick="descargar_pago(458299)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- 0544-2170885130 | TICKET AÉREO A TARAPOTO / DGI - BENJAMIN PARED	</td><td align="right"><b>735.85	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2170885130	</td><td>002170885130	</td><td align="right"><b>735.85	</td><td align="right"><b>101.09	</b></td><td>22-AGO-24	</td><td>13-SEP-24	</td><td>RC 10	</td><td align="right"><b>     735.85	</b></td><td align="right">     826.16	</td><td>00159425	</td><td>06-NOV-24	</td><td>MI 73	</td><td>31-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	26	</td><td><span class="pointer" onclick="descargar_pago(458301)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- E001-5266 | POR EMISIÓN DE TICKET AÉREO A TARAPOTO / DGI - SAL |	</td><td align="right"><b>149.76	</b></td><td>Anne Travel & Tours Sac - 	</td><td><b>20510357044	</b></td><td>FACTURA	</td><td>E001-5266	</td><td>000000005266	</td><td align="right"><b>149.76	</td><td align="right"><b>22.84	</b></td><td>22-AGO-24	</td><td>13-SEP-24	</td><td>RC 10	</td><td align="right"><b>     149.76	</b></td><td align="right">     826.16	</td><td>00159425	</td><td>06-NOV-24	</td><td>MI 73	</td><td>31-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	27	</td><td><span class="pointer" onclick="descargar_pago(463105)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-19776 | Viaje a Tarapoto - Comision de Servicios  del pers 	</td><td align="right"><b>52.00	</b></td><td>Danza S.A.C. Danza S.A.C. 	</td><td><b>20609469626	</b></td><td>FACTURA	</td><td>F001-19776	</td><td>000000019776	</td><td align="right"><b>52.00	</td><td align="right"><b>0.00	</b></td><td>31-AGO-24	</td><td>24-SEP-24	</td><td>RC 17	</td><td align="right"><b>      52.00	</b></td><td align="right">       0.00	</td><td>000574345	</td><td>02-OCT-24	</td><td>MI 68	</td><td>30-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	28	</td><td><span class="pointer" onclick="descargar_pago(463107)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F001-102 | Viaje a Tarapoto - Comision de Servicios del perso | 	</td><td align="right"><b>23.00	</b></td><td>Rios Villanueva Gladys - 	</td><td><b>10088087246	</b></td><td>FACTURA	</td><td>F001-102	</td><td>000000000102	</td><td align="right"><b>23.00	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>24-SEP-24	</td><td>RC 17	</td><td align="right"><b>      23.00	</b></td><td align="right">       0.00	</td><td>000574345	</td><td>02-OCT-24	</td><td>MI 68	</td><td>30-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	29	</td><td><span class="pointer" onclick="descargar_pago(463115)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- FA01-1309 | Viaje a Tarapoto - Comision de Servicios del perso |	</td><td align="right"><b>315.00	</b></td><td>Corporacion Hotelera Del Oriente S.A.C. Hotel Nilas 	</td><td><b>20404344707	</b></td><td>FACTURA	</td><td>FA01-1309	</td><td>000000001309	</td><td align="right"><b>315.00	</td><td align="right"><b>0.00	</b></td><td>31-AGO-24	</td><td>24-SEP-24	</td><td>RC 17	</td><td align="right"><b>     315.00	</b></td><td align="right">       0.00	</td><td>000574345	</td><td>02-OCT-24	</td><td>MI 68	</td><td>30-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	30	</td><td><span class="pointer" onclick="descargar_pago(463124)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F023-169339 | Viaje a Tarapoto - Comision de Servicios del perso	</td><td align="right"><b>37.40	</b></td><td>Lucha Partners S.A.C. La Lucha,7 Sopas,Republica,Her 	</td><td><b>20600593685	</b></td><td>FACTURA	</td><td>F023-169339	</td><td>000000169339	</td><td align="right"><b>37.40	</td><td align="right"><b>5.47	</b></td><td>28-AGO-24	</td><td>25-SEP-24	</td><td>RC 18	</td><td align="right"><b>       0.40	</b></td><td align="right">       0.00	</td><td>3181025	</td><td>	</td><td>MI 68	</td><td>30-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	31	</td><td><span class="pointer" onclick="descargar_pago(463124)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F023-169339 | Viaje a Tarapoto - Comision de Servicios del perso	</td><td align="right"><b>37.40	</b></td><td>Lucha Partners S.A.C. La Lucha,7 Sopas,Republica,Her 	</td><td><b>20600593685	</b></td><td>FACTURA	</td><td>F023-169339	</td><td>000000169339	</td><td align="right"><b>37.40	</td><td align="right"><b>5.47	</b></td><td>28-AGO-24	</td><td>25-SEP-24	</td><td>RC 18	</td><td align="right"><b>      37.00	</b></td><td align="right">       0.00	</td><td>000574345	</td><td>02-OCT-24	</td><td>MI 68	</td><td>30-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	32	</td><td><span class="pointer" onclick="descargar_pago(463126)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F032-7735 | Viaje a Tarapoto - Comision de Servicios del perso |	</td><td align="right"><b>53.33	</b></td><td>Supermercados La Inmaculada S.A.C Supermercados La Inmaculada 	</td><td><b>20404097343	</b></td><td>FACTURA	</td><td>F032-7735	</td><td>000000007735	</td><td align="right"><b>53.33	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>25-SEP-24	</td><td>RC 18	</td><td align="right"><b>       0.33	</b></td><td align="right">       0.00	</td><td>3181025	</td><td>	</td><td>MI 68	</td><td>30-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	33	</td><td><span class="pointer" onclick="descargar_pago(463126)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>11010208	</td><td>7124- F032-7735 | Viaje a Tarapoto - Comision de Servicios del perso |	</td><td align="right"><b>53.33	</b></td><td>Supermercados La Inmaculada S.A.C Supermercados La Inmaculada 	</td><td><b>20404097343	</b></td><td>FACTURA	</td><td>F032-7735	</td><td>000000007735	</td><td align="right"><b>53.33	</td><td align="right"><b>0.00	</b></td><td>30-AGO-24	</td><td>25-SEP-24	</td><td>RC 18	</td><td align="right"><b>      53.00	</b></td><td align="right">       0.00	</td><td>000574345	</td><td>02-OCT-24	</td><td>MI 68	</td><td>30-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	34	</td><td><span class="pointer" onclick="descargar_pago(474320)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-3	</td><td>13030904	</td><td>7124- 0544-5826465476 | TICKET AÉREO A EEUU - CONGRESS OF NEUROGICAL S	</td><td align="right"><b>2,112.29	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-5826465476	</td><td>005826465476	</td><td align="right"><b>2,112.29	</td><td align="right"><b>254.41	</b></td><td>27-AGO-24	</td><td>16-OCT-24	</td><td>RC 13	</td><td align="right"><b>   2,112.29	</b></td><td align="right">     561.93	</td><td>00317620	</td><td>14-NOV-24	</td><td>MI 17	</td><td>12-NOV-24	</td><td>	</td><td>	</td></tr>
+                                    
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal_docs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group list-group-flush " id="lista_docs">
+                
+                
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modal_error" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-danger text" id="staticBackdropLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Error!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="">Token caducado! <i class="fa fa-frown-o" aria-hidden="true"></i></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+
+
+
+
+
+    
+
+<script>
+
+let list_docs_html ="";
+let _TOKEN = "t3iNDv4zXPNSbsYTJolNowyO8Ud0hq";   
+//c6daGqeTgtdERDMVDatRto9gnynoGa
+
+const myModal = new bootstrap.Modal(document.getElementById('modal_docs'), {
+  keyboard: true,
+  focus: true
+});
+
+const myModalError = new bootstrap.Modal(document.getElementById('modal_error'), {
+  keyboard: true,
+  focus: true
+});
+
+
+
+
+function    descargar_compra(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+        window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+    }
+    };
+}
+
+function descargar_pago(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    list_docs_html = "";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+
+        data.forEach((file, index) => {
+            let _doc = "";
+            if(file.tipo=="3"){_doc="Compra"}else if(file.tipo=="1" || file.tipo=="12"){_doc="Pago TLC"}else if(file.tipo=="5"){_doc = "Sustento"}else if(file.tipo=="14"){_doc = "Detrac."}
+            list_docs_html += '<li class="list-group-item"><span class="badge text-bg-success">'+_doc+' </span> '+file.nombre+' <a class="badge text-bg-warning" href="'+file.url+'" target="_blank"> Ver doc <i class="fa fa-download" aria-hidden="true"></i></a></li>';
+        });
+
+        document.getElementById("lista_docs").innerHTML = list_docs_html;
+        
+        console.log("abriendo modal");
+
+
+
+        myModal.show();
+        //window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+        myModalError.show();
+    }
+    };
+}
+
+
+
+
+function doSearch(){
+
+  const tableReg = document.getElementById('datos_compras');
+
+  const searchText = document.getElementById('searchTerm').value.toLowerCase();
+
+  let total = 0;
+
+
+
+  // Recorremos todas las filas con contenido de la tabla
+
+  for (let i = 1; i < tableReg.rows.length; i++) {
+
+      // Si el td tiene la clase "noSearch" no se busca en su cntenido
+
+      if (tableReg.rows[i].classList.contains("noSearch")) {
+
+          continue;
+
+      }
+
+
+
+      let found = false;
+
+      const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+
+      // Recorremos todas las celdas
+
+      for (let j = 0; j < cellsOfRow.length && !found; j++) {
+
+          const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+
+          // Buscamos el texto en el contenido de la celda
+
+          if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+
+              found = true;
+
+              total++;
+
+          }
+
+      }
+
+      if (found) {
+
+      tableReg.rows[i].style.display = '';
+
+      } else {
+
+      // si no ha encontrado ninguna coincidencia, esconde la
+
+      // fila de la tabla
+
+      tableReg.rows[i].style.display = 'none';
+
+      }
+
+  }
+  
+  // mostramos las coincidencias
+
+  const msj_busqueda = document.getElementById("text_resultados");
+
+  msj_busqueda.classList.remove("hide", "red");
+
+  if (searchText == "") {
+
+    msj_busqueda.classList.add("hide");
+
+  } else if (total) {
+
+    msj_busqueda.innerHTML="Hay <b>"+total+"</b> coincidencia"+((total>1)?"s":"");
+
+  } else {
+
+    msj_busqueda.classList.add("red");
+
+    msj_busqueda.innerHTML="<b>0</b> coincidencias";
+
+  }
+
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>

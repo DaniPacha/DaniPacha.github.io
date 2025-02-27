@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progr. Deportivos LIMA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../aide-excel.ico" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    
+</head>
+<style>
+    .pointer{
+        cursor: pointer;
+    }
+    .pointer:hover{
+        color: yellow;
+    }
+    .table-hover.table-hover-dark > tbody > tr:hover > * {
+        background-color: #484848;
+        color: #ddd;
+        transition: all 0.3s;
+    }
+    
+    .pl-5{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    #text_resultados{
+      color: white;
+      line-height: 36px;
+      min-width: 180px;
+      text-align: right;
+      margin-right: 10px;;
+    }
+
+    .hide {display:none;}
+
+    .red {color:Red !important;}
+</style>
+<body>
+    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg bg-light">
+        <div class="container-fluid container-xxl">
+          <a class="navbar-brand" href="index.html">AIDE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="perfeccionamiento.html">Perfeccionamiento</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Progr. Deportivos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="proyeccion_social.html">Proyección Social</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="investigacion.html">Investigación</a>
+              </li>   
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="desarrollo_docente.html">Desarrollo Doc. Investig.</a>
+              </li>             
+            </ul>
+            <form class="d-flex" role="search">
+              <span id="text_resultados" class="inline-block"></span>
+              <input id="searchTerm" class="form-control me-2" type="search" placeholder="Buscar..."  onkeyup="doSearch()" aria-label="Search">
+              <!-- <button class="btn btn-outline-primary" type="button">Buscar</button> -->
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <h1 class="">Programas Deportivos (4142035-4) LIMA<span class="badge text-bg-light pointer" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.33em;"> <i class="fa fa-chevron-down" aria-hidden="true"></i></span></h1>
+        <div class="collapse" id="collapseExample">
+            <input id="f_token" type="text" class="form-control" placeholder="ahjHGFkjGKJG54JHGJ57HKGDFdwsL65" value="X">
+          </div>
+        <!-- <hr> -->
+        <div class="table-responsive"  style="max-height: 800px">
+            <table id="datos_compras" class="table table-responsive table-responsive-sm table-striped-columns table-hover table-hover-dark" style="font-size: 10.8px;" >
+                <thead>
+                    <tr class="table-primary ">
+                        <th>#</th>
+                        <th>Archivos</th>
+                        <th>Cuenta-Cta.Cte</th>  
+                        <th>Departm.</th>  
+                        <th>Descripcion Asiento</th>  
+                        <th>Imp Asiento</th>  
+                        <th>Razon Social</th>  
+                        <th>RUC</th>  
+                        <th>Tipo Comp.</th>  
+                        <th>Serie-Numero</th>  
+                        <th>Nro Compr.</th>    
+                        <th>Imp.Total Compr.</th>   
+                        <th>IGV Compr.</th>   
+                        <th>Fecha Comp.</th>  
+                        <th>Fecha Prov.</th> 
+                        <th>Lote Compra</th>  
+                        <th>Imp Pago</th>  
+                        <th>Imp Pago Dolares</th>  
+                        <th>Num Oper.</th>  
+                        <th>Fecha Pago</th>  
+                        <th>Lote Pago</th> 
+                        <th>Fecha Lote Pago</th>  
+                        <th>Retención</th> 
+                        <th>Detracción</th>  
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr><td align="right">	1	</td><td><span class="pointer" onclick="descargar_pago(374677)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F001-1114 | Pago Membresía UPeU ante la FEDUP | Pago Membresía U	</td><td align="right"><b>2,000.00	</b></td><td>Federacion Deportiva Universitaria Del Peru - Fedup - 	</td><td><b>20199144881	</b></td><td>FACTURA	</td><td>F001-1114	</td><td>000000001114	</td><td align="right"><b>2,000.00	</td><td align="right"><b>0.00	</b></td><td>06-MAY-24	</td><td>08-MAY-24	</td><td>RC 3	</td><td align="right"><b>   2,000.00	</b></td><td align="right">       0.00	</td><td>289574278	</td><td>26-MAY-24	</td><td>MI 32	</td><td>24-MAY-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	2	</td><td><span class="pointer" onclick="descargar_pago(382622)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- F001-1138 | Presupuesto PRODAC - Inscripción de Voley Masculin |	</td><td align="right"><b>3,960.00	</b></td><td>Federacion Deportiva Universitaria Del Peru - Fedup - 	</td><td><b>20199144881	</b></td><td>FACTURA	</td><td>F001-1138	</td><td>000000001138	</td><td align="right"><b>3,960.00	</td><td align="right"><b>0.00	</b></td><td>16-MAY-24	</td><td>20-MAY-24	</td><td>RC 11	</td><td align="right"><b>   3,960.00	</b></td><td align="right">       0.00	</td><td>00177668	</td><td>26-MAY-24	</td><td>MI 32	</td><td>24-MAY-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	3	</td><td><span class="pointer" onclick="descargar_pago(388267)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- F001-2972 | Presupuesto Prodac - CENA JUGADORES DE VOLEIBOL MA |	</td><td align="right"><b>285.00	</b></td><td>El Chino Peruano S.A.C. El Chino Peruano S.A.C. 	</td><td><b>20610121242	</b></td><td>FACTURA	</td><td>F001-2972	</td><td>000000002972	</td><td align="right"><b>285.00	</td><td align="right"><b>25.91	</b></td><td>22-MAY-24	</td><td>29-MAY-24	</td><td>RC 18	</td><td align="right"><b>     285.00	</b></td><td align="right">       0.00	</td><td>000569368	</td><td>04-JUN-24	</td><td>MB 2	</td><td>04-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	4	</td><td><span class="pointer" onclick="descargar_pago(395900)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-80 | Presupuesto PRODAC - Cena para la selección de Vol | P	</td><td align="right"><b>239.80	</b></td><td>Medina Venegas Maritza Restaurant La Fortaleza 	</td><td><b>10107381312	</b></td><td>FACTURA	</td><td>E001-80	</td><td>000000000080	</td><td align="right"><b>239.80	</td><td align="right"><b>21.80	</b></td><td>30-MAY-24	</td><td>06-JUN-24	</td><td>RC 4	</td><td align="right"><b>       8.80	</b></td><td align="right">       0.00	</td><td>000569342	</td><td>18-JUN-24	</td><td>MI 30	</td><td>13-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	5	</td><td><span class="pointer" onclick="descargar_pago(395900)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-80 | Presupuesto PRODAC - Cena para la selección de Vol | P	</td><td align="right"><b>239.80	</b></td><td>Medina Venegas Maritza Restaurant La Fortaleza 	</td><td><b>10107381312	</b></td><td>FACTURA	</td><td>E001-80	</td><td>000000000080	</td><td align="right"><b>239.80	</td><td align="right"><b>21.80	</b></td><td>30-MAY-24	</td><td>06-JUN-24	</td><td>RC 4	</td><td align="right"><b>     231.00	</b></td><td align="right">       0.00	</td><td>000569203	</td><td>18-JUN-24	</td><td>MI 30	</td><td>13-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	6	</td><td><span class="pointer" onclick="descargar_pago(396567)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-82 | Presupuesto PRODAC - Cena equipo de Voley Damas | Pres	</td><td align="right"><b>254.10	</b></td><td>Medina Venegas Maritza Restaurant La Fortaleza 	</td><td><b>10107381312	</b></td><td>FACTURA	</td><td>E001-82	</td><td>000000000082	</td><td align="right"><b>254.10	</td><td align="right"><b>23.10	</b></td><td>03-JUN-24	</td><td>06-JUN-24	</td><td>RC 4	</td><td align="right"><b>     254.10	</b></td><td align="right">       0.00	</td><td>000569342	</td><td>18-JUN-24	</td><td>MI 30	</td><td>13-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	7	</td><td><span class="pointer" onclick="descargar_pago(399617)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-86 | Cena de voley varones  5 de mayo | Cena de voley varon	</td><td align="right"><b>287.10	</b></td><td>Medina Venegas Maritza Restaurant La Fortaleza 	</td><td><b>10107381312	</b></td><td>FACTURA	</td><td>E001-86	</td><td>000000000086	</td><td align="right"><b>287.10	</td><td align="right"><b>26.10	</b></td><td>05-JUN-24	</td><td>12-JUN-24	</td><td>RC 7	</td><td align="right"><b>     287.10	</b></td><td align="right">       0.00	</td><td>162521	</td><td>20-JUN-24	</td><td>MI 30	</td><td>13-JUN-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	8	</td><td><span class="pointer" onclick="descargar_pago(399620)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-89 | Presupuesto Prodac - CENA VOLEY VARONES | Presupuesto 	</td><td align="right"><b>287.10	</b></td><td>Medina Venegas Maritza Restaurant La Fortaleza 	</td><td><b>10107381312	</b></td><td>FACTURA	</td><td>E001-89	</td><td>000000000089	</td><td align="right"><b>287.10	</td><td align="right"><b>26.10	</b></td><td>10-JUN-24	</td><td>12-JUN-24	</td><td>RC 7	</td><td align="right"><b>     287.10	</b></td><td align="right">       0.00	</td><td>000569464	</td><td>15-JUL-24	</td><td>MI 17	</td><td>15-JUL-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	9	</td><td><span class="pointer" onclick="descargar_pago(408832)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F001-14803 | PRODAC - cena de voley varones | PRODAC - cena de v	</td><td align="right"><b>289.80	</b></td><td>Nikita S.A.C Nikita S.A.C 	</td><td><b>20524110769	</b></td><td>FACTURA	</td><td>F001-14803	</td><td>000000014803	</td><td align="right"><b>289.80	</td><td align="right"><b>44.21	</b></td><td>19-JUN-24	</td><td>27-JUN-24	</td><td>RC 18	</td><td align="right"><b>     289.80	</b></td><td align="right">       0.00	</td><td>000569969	</td><td>15-JUL-24	</td><td>MI 17	</td><td>15-JUL-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	10	</td><td><span class="pointer" onclick="descargar_pago(412845)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-106 | PRODAC - cena de selección de  voley varones 26 de | 	</td><td align="right"><b>288.20	</b></td><td>Medina Venegas Maritza Restaurant La Fortaleza 	</td><td><b>10107381312	</b></td><td>FACTURA	</td><td>E001-106	</td><td>000000000106	</td><td align="right"><b>288.20	</td><td align="right"><b>26.20	</b></td><td>26-JUN-24	</td><td>03-JUL-24	</td><td>RC 3	</td><td align="right"><b>     288.20	</b></td><td align="right">       0.00	</td><td>000570880	</td><td>04-JUL-24	</td><td>MB 7	</td><td>05-JUL-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	11	</td><td><span class="pointer" onclick="descargar_pago(414835)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F001-6763 | Cta. PRODAC - Cena de festejo al equipo de Voley p |	</td><td align="right"><b>566.00	</b></td><td>Chifa Central Chacla E.I.R.L. . 	</td><td><b>20549798358	</b></td><td>FACTURA	</td><td>F001-6763	</td><td>000000006763	</td><td align="right"><b>566.00	</td><td align="right"><b>51.45	</b></td><td>01-JUL-24	</td><td>05-JUL-24	</td><td>RC 5	</td><td align="right"><b>     566.00	</b></td><td align="right">       0.00	</td><td>5331901	</td><td>09-JUL-24	</td><td>MB 15	</td><td>09-JUL-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	12	</td><td><span class="pointer" onclick="descargar_pago(466756)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- F001-1409 | Inscripción FEDUP Centenario XXV Universiada Arequ |	</td><td align="right"><b>1,980.00	</b></td><td>Federacion Deportiva Universitaria Del Peru - Fedup - 	</td><td><b>20199144881	</b></td><td>FACTURA	</td><td>F001-1409	</td><td>000000001409	</td><td align="right"><b>1,980.00	</td><td align="right"><b>0.00	</b></td><td>25-SEP-24	</td><td>25-SEP-24	</td><td>RC 18	</td><td align="right"><b>   1,980.00	</b></td><td align="right">       0.00	</td><td>1233214	</td><td>26-SEP-24	</td><td>MB 48	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	13	</td><td><span class="pointer" onclick="descargar_pago(466970)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164569 | Pasaje a Arequipa Est. Mathews Sandoval - Dele	</td><td align="right"><b>861.69	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164569	</td><td>002175164569	</td><td align="right"><b>861.69	</td><td align="right"><b>120.28	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>     861.69	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	14	</td><td><span class="pointer" onclick="descargar_pago(467055)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164568 | Pasaje a Arequipa Est. Marcelo Mmamani - Deleg	</td><td align="right"><b>861.69	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164568	</td><td>002175164568	</td><td align="right"><b>861.69	</td><td align="right"><b>120.28	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>     861.69	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	15	</td><td><span class="pointer" onclick="descargar_pago(467065)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-21715164567 | Pasaje a Arequipa Est. Jonathan Uruchi - Dele	</td><td align="right"><b>861.69	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-21715164567	</td><td>021715164567	</td><td align="right"><b>861.69	</td><td align="right"><b>120.28	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>     861.69	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	16	</td><td><span class="pointer" onclick="descargar_pago(467071)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164566 | Pasaje a Arequipa Est. Joseph Morales- Delegac	</td><td align="right"><b>861.69	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164566	</td><td>002175164566	</td><td align="right"><b>861.69	</td><td align="right"><b>120.28	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>     861.69	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	17	</td><td><span class="pointer" onclick="descargar_pago(467073)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164565 | Pasaje a Arequipa Est. Ainstein Fidel - Delega	</td><td align="right"><b>861.69	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164565	</td><td>002175164565	</td><td align="right"><b>861.69	</td><td align="right"><b>120.28	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>     861.69	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	18	</td><td><span class="pointer" onclick="descargar_pago(467078)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164564 | Pasaje a Arequipa Est. Eddy Cruz - Delegación 	</td><td align="right"><b>861.69	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164564	</td><td>002175164564	</td><td align="right"><b>861.69	</td><td align="right"><b>120.28	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>     861.69	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	19	</td><td><span class="pointer" onclick="descargar_pago(467080)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164563 | Pasaje a Arequipa Est. Carlos Alarcón - Delega	</td><td align="right"><b>861.69	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164563	</td><td>002175164563	</td><td align="right"><b>861.69	</td><td align="right"><b>120.28	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>     861.69	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	20	</td><td><span class="pointer" onclick="descargar_pago(467087)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164149 | Pasaje a Arequipa Est. Manuel Atauconcha - Del	</td><td align="right"><b>1,003.44	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164149	</td><td>002175164149	</td><td align="right"><b>1,003.44	</td><td align="right"><b>141.90	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>   1,003.44	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	21	</td><td><span class="pointer" onclick="descargar_pago(467093)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164148 | Pasaje a Arequipa Est. Luis Fernández - Delega	</td><td align="right"><b>1,003.44	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164148	</td><td>002175164148	</td><td align="right"><b>1,003.44	</td><td align="right"><b>141.90	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>   1,003.44	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	22	</td><td><span class="pointer" onclick="descargar_pago(467107)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164147 | Pasaje a Arequipa Est. Samuel Rojas - Delegaci	</td><td align="right"><b>1,003.44	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164147	</td><td>002175164147	</td><td align="right"><b>1,003.44	</td><td align="right"><b>141.90	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>   1,003.44	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	23	</td><td><span class="pointer" onclick="descargar_pago(467148)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164146 | Pasaje a Arequipa Est. Luis Belisario - Delega	</td><td align="right"><b>1,003.44	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164146	</td><td>002175164146	</td><td align="right"><b>1,003.44	</td><td align="right"><b>141.90	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>   1,003.44	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	24	</td><td><span class="pointer" onclick="descargar_pago(467171)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164145 | Pasaje a Arequipa Est. Maycol Bravo - Delegaci	</td><td align="right"><b>1,003.44	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164145	</td><td>002175164145	</td><td align="right"><b>1,003.44	</td><td align="right"><b>141.90	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>   1,003.44	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	25	</td><td><span class="pointer" onclick="descargar_pago(467173)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- 0544-2175164144 | Pasaje a Arequipa Est. Jefferson Pucuji  - Del	</td><td align="right"><b>1,003.44	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2175164144	</td><td>002175164144	</td><td align="right"><b>1,003.44	</td><td align="right"><b>141.90	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>   1,003.44	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	26	</td><td><span class="pointer" onclick="descargar_pago(467175)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010217	</td><td>7124- E001-5348 | Por la compra de pasaje a Arequipa de 11 estudiant |	</td><td align="right"><b>488.02	</b></td><td>Anne Travel & Tours Sac - 	</td><td><b>20510357044	</b></td><td>FACTURA	</td><td>E001-5348	</td><td>000000005348	</td><td align="right"><b>488.02	</td><td align="right"><b>74.44	</b></td><td>23-SEP-24	</td><td>26-SEP-24	</td><td>RC 19	</td><td align="right"><b>     488.02	</b></td><td align="right">   3,340.58	</td><td>1221808	</td><td>29-SEP-24	</td><td>MI 55	</td><td>26-SEP-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	27	</td><td><span class="pointer" onclick="descargar_pago(474477)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F002-1015 | Servicio de alojamiento equipo de vóley varones  - |	</td><td align="right"><b>3,910.00	</b></td><td>Servicios Generales America D Y M Emp. Ind. De Resp. Ltda - S.G. America D Y M E.I.R.L. Cabaña Maria Inn 	</td><td><b>20601943779	</b></td><td>FACTURA	</td><td>F002-1015	</td><td>000000001015	</td><td align="right"><b>3,910.00	</td><td align="right"><b>355.45	</b></td><td>01-OCT-24	</td><td>20-OCT-24	</td><td>RC 4	</td><td align="right"><b>     500.00	</b></td><td align="right">       0.00	</td><td>1246115	</td><td>20-OCT-24	</td><td>MI 36	</td><td>17-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	28	</td><td><span class="pointer" onclick="descargar_pago(474477)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F002-1015 | Servicio de alojamiento equipo de vóley varones  - |	</td><td align="right"><b>3,910.00	</b></td><td>Servicios Generales America D Y M Emp. Ind. De Resp. Ltda - S.G. America D Y M E.I.R.L. Cabaña Maria Inn 	</td><td><b>20601943779	</b></td><td>FACTURA	</td><td>F002-1015	</td><td>000000001015	</td><td align="right"><b>3,910.00	</td><td align="right"><b>355.45	</b></td><td>01-OCT-24	</td><td>20-OCT-24	</td><td>RC 4	</td><td align="right"><b>   3,292.70	</b></td><td align="right">       0.00	</td><td>00105592	</td><td>20-OCT-24	</td><td>MI 36	</td><td>17-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	29	</td><td><span class="pointer" onclick="descargar_pago(474477)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F002-1015 | Servicio de alojamiento equipo de vóley varones  - |	</td><td align="right"><b>3,910.00	</b></td><td>Servicios Generales America D Y M Emp. Ind. De Resp. Ltda - S.G. America D Y M E.I.R.L. Cabaña Maria Inn 	</td><td><b>20601943779	</b></td><td>FACTURA	</td><td>F002-1015	</td><td>000000001015	</td><td align="right"><b>3,910.00	</td><td align="right"><b>355.45	</b></td><td>01-OCT-24	</td><td>20-OCT-24	</td><td>RC 4	</td><td align="right"><b>     117.30	</b></td><td align="right">       0.00	</td><td>00106712	</td><td>20-OCT-24	</td><td>MI 36	</td><td>17-OCT-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	30	</td><td><span class="pointer" onclick="descargar_pago(481341)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F002-515 | Participación campeonato FEDUP Nacional Arequipa | Pa	</td><td align="right"><b>237.00	</b></td><td>Huamani Chambi Lizbeth Claribel Huamani Chambi Lizbeth Claribel 	</td><td><b>10466474903	</b></td><td>FACTURA	</td><td>F002-515	</td><td>000000000515	</td><td align="right"><b>237.00	</td><td align="right"><b>21.55	</b></td><td>29-SEP-24	</td><td>18-OCT-24	</td><td>RC 15	</td><td align="right"><b>     237.00	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	31	</td><td><span class="pointer" onclick="descargar_pago(481346)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F001-3216 | FEDUP - Participación campeonato nacional Arequipa |	</td><td align="right"><b>248.00	</b></td><td>Chen Correazhilong Alejandro Chen Correazhilong Alejandro 	</td><td><b>15456292523	</b></td><td>FACTURA	</td><td>F001-3216	</td><td>000000003216	</td><td align="right"><b>248.00	</td><td align="right"><b>22.55	</b></td><td>27-SEP-24	</td><td>18-OCT-24	</td><td>RC 15	</td><td align="right"><b>     248.00	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	32	</td><td><span class="pointer" onclick="descargar_pago(481350)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F001-3218 | FEDUP - Participación campeonato nacional Arequipa |	</td><td align="right"><b>219.00	</b></td><td>Chen Correazhilong Alejandro Chen Correazhilong Alejandro 	</td><td><b>15456292523	</b></td><td>FACTURA	</td><td>F001-3218	</td><td>000000003218	</td><td align="right"><b>219.00	</td><td align="right"><b>19.91	</b></td><td>28-SEP-24	</td><td>17-OCT-24	</td><td>RC 14	</td><td align="right"><b>     219.00	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	33	</td><td><span class="pointer" onclick="descargar_pago(481355)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- FW01-641 | FEDUP - Participación campeonato nacional Arequipa | 	</td><td align="right"><b>189.00	</b></td><td>La Sazon De Anita E.I.R.L. La Sazon De Anita E.I.R.L. 	</td><td><b>20610607935	</b></td><td>FACTURA	</td><td>FW01-641	</td><td>000000000641	</td><td align="right"><b>189.00	</td><td align="right"><b>28.83	</b></td><td>27-SEP-24	</td><td>17-OCT-24	</td><td>RC 14	</td><td align="right"><b>     189.00	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	34	</td><td><span class="pointer" onclick="descargar_pago(481356)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- EB01-186 | FEDUP - Participación campeonato nacional Arequipa | 	</td><td align="right"><b>129.76	</b></td><td>Mendoza Merma Janeth Marilu Mendoza Merma Janeth Marilu 	</td><td><b>10294153913	</b></td><td>BOLETA DE VENTA	</td><td>EB01-186	</td><td>000000000186	</td><td align="right"><b>129.76	</td><td align="right"><b>0.00	</b></td><td>29-SEP-24	</td><td>17-OCT-24	</td><td>RC 14	</td><td align="right"><b>     129.76	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	35	</td><td><span class="pointer" onclick="descargar_pago(481357)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- FF03-9409 | FEDUP - Participación campeonato nacional Arequipa |	</td><td align="right"><b>165.00	</b></td><td>Pura Fruta Jugueria - Sangucheria S.R.L. Pura Fruta Jugueria - Sangucheria S.R.L. 	</td><td><b>20455801215	</b></td><td>FACTURA	</td><td>FF03-9409	</td><td>000000009409	</td><td align="right"><b>165.00	</td><td align="right"><b>15.00	</b></td><td>27-SEP-24	</td><td>17-OCT-24	</td><td>RC 14	</td><td align="right"><b>     165.00	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	36	</td><td><span class="pointer" onclick="descargar_pago(481358)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-1928 | FEDUP - Participación campeonato nacional Arequipa |	</td><td align="right"><b>109.99	</b></td><td>Avm Rest Peru E.I.R.L. Avm Rest Peru E.I.R.L. 	</td><td><b>20608141597	</b></td><td>FACTURA	</td><td>E001-1928	</td><td>000000001928	</td><td align="right"><b>109.99	</td><td align="right"><b>10.00	</b></td><td>01-OCT-24	</td><td>17-OCT-24	</td><td>RC 14	</td><td align="right"><b>     109.99	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	37	</td><td><span class="pointer" onclick="descargar_pago(481361)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-1929 | FEDUP - Participación campeonato nacional Arequipa |	</td><td align="right"><b>120.00	</b></td><td>Avm Rest Peru E.I.R.L. Avm Rest Peru E.I.R.L. 	</td><td><b>20608141597	</b></td><td>FACTURA	</td><td>E001-1929	</td><td>000000001929	</td><td align="right"><b>120.00	</td><td align="right"><b>10.91	</b></td><td>01-OCT-24	</td><td>17-OCT-24	</td><td>RC 14	</td><td align="right"><b>     120.00	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	38	</td><td><span class="pointer" onclick="descargar_pago(481362)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-1930 | FEDUP - Participación campeonato nacional Arequipa |	</td><td align="right"><b>230.02	</b></td><td>Avm Rest Peru E.I.R.L. Avm Rest Peru E.I.R.L. 	</td><td><b>20608141597	</b></td><td>FACTURA	</td><td>E001-1930	</td><td>000000001930	</td><td align="right"><b>230.02	</td><td align="right"><b>20.91	</b></td><td>01-OCT-24	</td><td>17-OCT-24	</td><td>RC 14	</td><td align="right"><b>     230.02	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	39	</td><td><span class="pointer" onclick="descargar_pago(483476)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- F001-4010 | FEDUP - Participación campeonato nacional Arequipa |	</td><td align="right"><b>206.90	</b></td><td>Tinta Tinta Maria Tinta Tinta Maria 	</td><td><b>10306753601	</b></td><td>FACTURA	</td><td>F001-4010	</td><td>000000004010	</td><td align="right"><b>206.90	</td><td align="right"><b>18.81	</b></td><td>02-OCT-24	</td><td>24-OCT-24	</td><td>RC 20	</td><td align="right"><b>     206.90	</b></td><td align="right">       0.00	</td><td>000575687	</td><td>26-NOV-24	</td><td>MI 47	</td><td>21-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	40	</td><td><span class="pointer" onclick="descargar_pago(515248)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2200840116 | CAMBIO DE TICKET AÉREO  RETORNO A LIMA / PRODA	</td><td align="right"><b>94.48	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2200840116	</td><td>002200840116	</td><td align="right"><b>94.48	</td><td align="right"><b>0.00	</b></td><td>01-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>      94.48	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	41	</td><td><span class="pointer" onclick="descargar_pago(515250)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2200839478 | CAMBIO DE TICKET AÉREO - RETORNO A LIMA / PROD	</td><td align="right"><b>94.48	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2200839478	</td><td>002200839478	</td><td align="right"><b>94.48	</td><td align="right"><b>0.00	</b></td><td>01-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>      94.48	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	42	</td><td><span class="pointer" onclick="descargar_pago(515255)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-22201052662 | CAMBIO DE FECHA - RETORNO A LIMA / PRODAC - J	</td><td align="right"><b>230.59	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-22201052662	</td><td>022201052662	</td><td align="right"><b>230.59	</td><td align="right"><b>0.00	</b></td><td>02-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>     230.59	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	43	</td><td><span class="pointer" onclick="descargar_pago(515256)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2201052678 | CAMBIO DE FECHA - RETORNO A LIMA / PRODAC - MA	</td><td align="right"><b>230.59	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2201052678	</td><td>002201052678	</td><td align="right"><b>230.59	</td><td align="right"><b>0.00	</b></td><td>02-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>     230.59	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	44	</td><td><span class="pointer" onclick="descargar_pago(515257)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2201052714 | CAMBIO DE TICKET - RETORNO A LIMA / PRODAC - A	</td><td align="right"><b>230.59	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2201052714	</td><td>002201052714	</td><td align="right"><b>230.59	</td><td align="right"><b>0.00	</b></td><td>02-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>     230.59	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	45	</td><td><span class="pointer" onclick="descargar_pago(515258)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2201052929 | CAMBIO DE PASAJE - RETORNO A LIMA / PRODAC - M	</td><td align="right"><b>230.59	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2201052929	</td><td>002201052929	</td><td align="right"><b>230.59	</td><td align="right"><b>0.00	</b></td><td>02-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>     230.59	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	46	</td><td><span class="pointer" onclick="descargar_pago(515260)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2200840005 | CAMBIO DE FECHA - RETORNO A LIMA / PRODAC - JE	</td><td align="right"><b>94.48	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2200840005	</td><td>002200840005	</td><td align="right"><b>94.48	</td><td align="right"><b>0.00	</b></td><td>01-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>      94.48	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	47	</td><td><span class="pointer" onclick="descargar_pago(515261)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2200839942 | CAMBIO DE PASAJE - RETORNO A LIMA / PRODAC - S	</td><td align="right"><b>94.48	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2200839942	</td><td>002200839942	</td><td align="right"><b>94.48	</td><td align="right"><b>0.00	</b></td><td>01-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>      94.48	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	48	</td><td><span class="pointer" onclick="descargar_pago(515262)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2201052181 | CAMBIO DE PASAJE - RETORNO A LIMA / PRODAC - C	</td><td align="right"><b>230.59	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>FACTURA	</td><td>0544-2201052181	</td><td>002201052181	</td><td align="right"><b>230.59	</td><td align="right"><b>0.00	</b></td><td>02-OCT-24	</td><td>29-NOV-24	</td><td>RC 23	</td><td align="right"><b>     230.59	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	49	</td><td><span class="pointer" onclick="descargar_pago(515263)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2201052362 | CAMBIO DE PASAJE - RETORNO A LIMA / PRODAC - E	</td><td align="right"><b>230.59	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2201052362	</td><td>002201052362	</td><td align="right"><b>230.59	</td><td align="right"><b>0.00	</b></td><td>02-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>     230.59	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	50	</td><td><span class="pointer" onclick="descargar_pago(515265)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- 0544-2201052644 | CAMBIO DE PASAJE - RETORNO A LIMA / PRODAC - J	</td><td align="right"><b>230.59	</b></td><td>Latam Airlines Peru S.A. Latam Airlines Peru 	</td><td><b>20341841357	</b></td><td>BOLETOS DE TRANSPORTE AEREO	</td><td>0544-2201052644	</td><td>002201052644	</td><td align="right"><b>230.59	</td><td align="right"><b>0.00	</b></td><td>02-OCT-24	</td><td>29-NOV-24	</td><td>RC 23	</td><td align="right"><b>     230.59	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                  <tr><td align="right">	51	</td><td><span class="pointer" onclick="descargar_pago(515267)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>4142035-4	</td><td>11010216	</td><td>7124- E001-5363 | POR RE EMISIÓN DE 13 BOLETOS /  PRODAC - URUCHI, M |	</td><td align="right"><b>409.00	</b></td><td>Anne Travel & Tours Sac - 	</td><td><b>20510357044	</b></td><td>FACTURA	</td><td>E001-5363	</td><td>000000005363	</td><td align="right"><b>483.34	</td><td align="right"><b>73.73	</b></td><td>02-OCT-24	</td><td>03-DIC-24	</td><td>RC 23	</td><td align="right"><b>     483.34	</b></td><td align="right">     716.78	</td><td>00270912	</td><td>03-DIC-24	</td><td>MI 68	</td><td>30-NOV-24	</td><td>	</td><td>	</td></tr>
+                                    
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal_docs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group list-group-flush " id="lista_docs">
+                
+                
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modal_error" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-danger text" id="staticBackdropLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Error!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="">Token caducado! <i class="fa fa-frown-o" aria-hidden="true"></i></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+
+
+
+
+
+    
+
+<script>
+
+let list_docs_html ="";
+let _TOKEN = "t3iNDv4zXPNSbsYTJolNowyO8Ud0hq";   
+//c6daGqeTgtdERDMVDatRto9gnynoGa
+
+const myModal = new bootstrap.Modal(document.getElementById('modal_docs'), {
+  keyboard: true,
+  focus: true
+});
+
+const myModalError = new bootstrap.Modal(document.getElementById('modal_error'), {
+  keyboard: true,
+  focus: true
+});
+
+
+
+
+function    descargar_compra(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+        window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+    }
+    };
+}
+
+function descargar_pago(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    list_docs_html = "";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+
+        data.forEach((file, index) => {
+            let _doc = "";
+            if(file.tipo=="3"){_doc="Compra"}else if(file.tipo=="1" || file.tipo=="12"){_doc="Pago TLC"}else if(file.tipo=="5"){_doc = "Sustento"}else if(file.tipo=="14"){_doc = "Detrac."}
+            list_docs_html += '<li class="list-group-item"><span class="badge text-bg-success">'+_doc+' </span> '+file.nombre+' <a class="badge text-bg-warning" href="'+file.url+'" target="_blank"> Ver doc <i class="fa fa-download" aria-hidden="true"></i></a></li>';
+        });
+
+        document.getElementById("lista_docs").innerHTML = list_docs_html;
+        
+        console.log("abriendo modal");
+
+
+
+        myModal.show();
+        //window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+        myModalError.show();
+    }
+    };
+}
+
+
+
+
+function doSearch(){
+
+  const tableReg = document.getElementById('datos_compras');
+
+  const searchText = document.getElementById('searchTerm').value.toLowerCase();
+
+  let total = 0;
+
+
+
+  // Recorremos todas las filas con contenido de la tabla
+
+  for (let i = 1; i < tableReg.rows.length; i++) {
+
+      // Si el td tiene la clase "noSearch" no se busca en su cntenido
+
+      if (tableReg.rows[i].classList.contains("noSearch")) {
+
+          continue;
+
+      }
+
+
+
+      let found = false;
+
+      const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+
+      // Recorremos todas las celdas
+
+      for (let j = 0; j < cellsOfRow.length && !found; j++) {
+
+          const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+
+          // Buscamos el texto en el contenido de la celda
+
+          if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+
+              found = true;
+
+              total++;
+
+          }
+
+      }
+
+      if (found) {
+
+      tableReg.rows[i].style.display = '';
+
+      } else {
+
+      // si no ha encontrado ninguna coincidencia, esconde la
+
+      // fila de la tabla
+
+      tableReg.rows[i].style.display = 'none';
+
+      }
+
+  }
+  
+  // mostramos las coincidencias
+
+  const msj_busqueda = document.getElementById("text_resultados");
+
+  msj_busqueda.classList.remove("hide", "red");
+
+  if (searchText == "") {
+
+    msj_busqueda.classList.add("hide");
+
+  } else if (total) {
+
+    msj_busqueda.innerHTML="Hay <b>"+total+"</b> coincidencia"+((total>1)?"s":"");
+
+  } else {
+
+    msj_busqueda.classList.add("red");
+
+    msj_busqueda.innerHTML="<b>0</b> coincidencias";
+
+  }
+
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>
