@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capac.Docente TARAPOTO</title>
+    <link rel="shortcut icon" type="image/x-icon" href="../aide-excel.ico" />
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    
+</head>
+<style>
+    .pointer{
+        cursor: pointer;
+    }
+    .pointer:hover{
+        color: yellow;
+    }
+    .table-hover.table-hover-dark > tbody > tr:hover > * {
+        background-color: #484848;
+        color: #ddd;
+        transition: all 0.3s;
+    }
+    
+    .pl-5{
+        padding-left: 5rem;
+        padding-right: 5rem;
+    }
+
+    #text_resultados{
+      color: white;
+      line-height: 36px;
+      min-width: 180px;
+      text-align: right;
+      margin-right: 10px;;
+    }
+
+    .hide {display:none;}
+
+    .red {color:Red !important;}
+</style>
+<body>
+    <nav class="navbar  navbar-dark bg-dark navbar-expand-lg bg-light">
+        <div class="container-fluid container-xxl">
+          <a class="navbar-brand" href="index.html">AIDE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="r4.html">R4 Capac.Docente</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="r8.html">R8 Progr. Deportivos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="r9.html">R9 Proy. Social</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="r10.html">R10 Inv. e Innov.</a>
+              </li>    
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Residencias</a>
+              </li>           
+              <li class="nav-item">
+                <a class="nav-link " aria-current="page" href="pedidos_infraestructura.html">Pedido Infra</a>
+              </li>            
+            </ul>
+            <form class="d-flex" role="search">
+              <span id="text_resultados" class="inline-block"></span>
+              <input id="searchTerm" class="form-control me-2" type="search" placeholder="Buscar..."  onkeyup="doSearch()" aria-label="Search">
+              <!-- <button class="btn btn-outline-primary" type="button">Buscar</button> -->
+            </form>
+          </div>
+        </div>
+      </nav>
+    <div class="container-fluid">
+        <h1 class="">Residencias (1231004/7124-59226)<span class="badge text-bg-light pointer" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="font-size: 0.33em;"> <i class="fa fa-chevron-down" aria-hidden="true"></i></span></h1>
+        <div class="collapse" id="collapseExample">
+            <input id="f_token" type="text" class="form-control" placeholder="ahjHGFkjGKJG54JHGJ57HKGDFdwsL65" value="X">
+          </div>
+        <!-- <hr> -->
+        <div class="table-responsive"  style="max-height: 800px">
+            <table id="datos_compras" class="table table-responsive table-responsive-sm table-striped-columns table-hover table-hover-dark" style="font-size: 10.8px;" >
+                <thead>
+                    <tr class="table-primary ">
+                        <th>#</th>
+                        <th>Archivos</th>
+                        <th>Cuenta-Cta.Cte</th>  
+                        <th>Departm.</th>  
+                        <th>Descripcion Asiento</th>  
+                        <th>Imp Asiento</th>  
+                        <th>Razon Social</th>  
+                        <th>RUC</th>  
+                        <th>Tipo Comp.</th>  
+                        <th>Serie-Numero</th>  
+                        <th>Nro Compr.</th>    
+                        <th>Imp.Total Compr.</th>   
+                        <th>IGV Compr.</th>   
+                        <th>Fecha Comp.</th>  
+                        <th>Fecha Prov.</th> 
+                        <th>Lote Compra</th>  
+                        <th>Imp Pago</th>  
+                        <th>Imp Pago Dolares</th>  
+                        <th>Num Oper.</th>  
+                        <th>Fecha Pago</th>  
+                        <th>Lote Pago</th> 
+                        <th>Fecha Lote Pago</th>  
+                        <th>Retención</th> 
+                        <th>Detracción</th>  
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td align="right">	1	</td><td><span class="pointer" onclick="descargar_pago(553317)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>61010101	</td><td>7124- F001-1571 | Aires acondionados/residencia señoritas | ADELANTO D	</td><td align="right"><b>52,000.00	</b></td><td>Sarovi Group E.I.R.L. - 	</td><td><b>20604987688	</b></td><td>FACTURA	</td><td>F001-1571	</td><td>000000001571	</td><td align="right"><b>52,000.00	</td><td align="right"><b>0.00	</b></td><td>24-ENE-25	</td><td>30-ENE-25	</td><td>RCT 10	</td><td align="right"><b>  52,000.00	</b></td><td align="right">       0.00	</td><td>38996	</td><td>30-ENE-25	</td><td>MBT 51	</td><td>30-ENE-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	2	</td><td><span class="pointer" onclick="descargar_pago(553895)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>61010101	</td><td>7124- E001-55 | Acondicionamiento/Residencia señoritas | Por el concep	</td><td align="right"><b>85,563.97	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-55	</td><td>000000000055	</td><td align="right"><b>85,563.97	</td><td align="right"><b>0.00	</b></td><td>29-ENE-25	</td><td>30-ENE-25	</td><td>RCT 10	</td><td align="right"><b>  85,563.97	</b></td><td align="right">       0.00	</td><td>39000	</td><td>31-ENE-25	</td><td>MBT 52	</td><td>31-ENE-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	3	</td><td><span class="pointer" onclick="descargar_pago(556825)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>61010101	</td><td>7124- E001-57 | 1era Valorización/Residencia de señoritas | POR EL CON	</td><td align="right"><b>59,286.15	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-57	</td><td>000000000057	</td><td align="right"><b>59,286.15	</td><td align="right"><b>0.00	</b></td><td>04-FEB-25	</td><td>07-FEB-25	</td><td>RCT 3	</td><td align="right"><b>  59,286.15	</b></td><td align="right">       0.00	</td><td>39069	</td><td>10-FEB-25	</td><td>MBT 15	</td><td>10-FEB-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	4	</td><td><span class="pointer" onclick="descargar_pago(557929)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>61010101	</td><td>7124- E001-2 | Reparación de Carpintería | ADELANTO DEL 50% DEL CONTRA	</td><td align="right"><b>31,250.00	</b></td><td>Eulises Lozano Vasquez	</td><td><b>10275707452	</b></td><td>FACTURA	</td><td>E001-2	</td><td>000000000002	</td><td align="right"><b>31,250.00	</td><td align="right"><b>0.00	</b></td><td>05-FEB-25	</td><td>10-FEB-25	</td><td>RCT 4	</td><td align="right"><b>  31,250.00	</b></td><td align="right">       0.00	</td><td>39082	</td><td>11-FEB-25	</td><td>MBT 17	</td><td>11-FEB-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	5	</td><td><span class="pointer" onclick="descargar_pago(562446)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>61010101	</td><td>7124- F001-1577 | Valorización 1 Instalación de aires | VALORIZACION 1	</td><td align="right"><b>33,517.80	</b></td><td>Sarovi Group E.I.R.L. - 	</td><td><b>20604987688	</b></td><td>FACTURA	</td><td>F001-1577	</td><td>000000001577	</td><td align="right"><b>33,517.80	</td><td align="right"><b>0.00	</b></td><td>12-FEB-25	</td><td>18-FEB-25	</td><td>RCT 8	</td><td align="right"><b>  33,517.80	</b></td><td align="right">       0.00	</td><td>39180	</td><td>19-FEB-25	</td><td>MBT 31	</td><td>19-FEB-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	6	</td><td><span class="pointer" onclick="descargar_pago(564701)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-59 | Valorización 2 residencias señoritas | VALORIZACION 02	</td><td align="right"><b>53,684.46	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-59	</td><td>000000000059	</td><td align="right"><b>53,684.46	</td><td align="right"><b>0.00	</b></td><td>12-FEB-25	</td><td>20-FEB-25	</td><td>RCT 10	</td><td align="right"><b>  53,684.46	</b></td><td align="right">       0.00	</td><td>39241	</td><td>24-FEB-25	</td><td>MBT 38	</td><td>24-FEB-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	7	</td><td><span class="pointer" onclick="descargar_pago(564705)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-60 | Valorizacion N°3 Residencia señoritas | VALORIZACION N	</td><td align="right"><b>26,974.49	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-60	</td><td>000000000060	</td><td align="right"><b>26,974.49	</td><td align="right"><b>0.00	</b></td><td>18-FEB-25	</td><td>20-FEB-25	</td><td>RCT 10	</td><td align="right"><b>  26,974.49	</b></td><td align="right">       0.00	</td><td>39292	</td><td>25-FEB-25	</td><td>MBT 41	</td><td>25-FEB-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	8	</td><td><span class="pointer" onclick="descargar_pago(564740)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-58 | Adelanto 50% /Residencia Señoritas | ADELANTO DEL 50%	</td><td align="right"><b>23,000.00	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-58	</td><td>000000000058	</td><td align="right"><b>23,000.00	</td><td align="right"><b>0.00	</b></td><td>12-FEB-25	</td><td>20-FEB-25	</td><td>RCT 10	</td><td align="right"><b>  23,000.00	</b></td><td align="right">       0.00	</td><td>39241	</td><td>24-FEB-25	</td><td>MBT 38	</td><td>24-FEB-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	9	</td><td><span class="pointer" onclick="descargar_pago(570111)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-5 | Estructuras metalicas/residencia señoritas | ADELANTO D	</td><td align="right"><b>7,800.00	</b></td><td>Conco Contratistas S.A.C. Conco Contratistas S.A.C. 	</td><td><b>20608417436	</b></td><td>FACTURA	</td><td>E001-5	</td><td>000000000005	</td><td align="right"><b>7,800.00	</td><td align="right"><b>0.00	</b></td><td>25-FEB-25	</td><td>03-MAR-25	</td><td>RCT 1	</td><td align="right"><b>   7,800.00	</b></td><td align="right">       0.00	</td><td>150911	</td><td>05-MAR-25	</td><td>MBT 8	</td><td>05-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	10	</td><td><span class="pointer" onclick="descargar_pago(570168)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-61 | valorizacion 4/residencia señoritas | PAGO DE LA VALOR	</td><td align="right"><b>9,110.09	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-61	</td><td>000000000061	</td><td align="right"><b>9,110.09	</td><td align="right"><b>0.00	</b></td><td>26-FEB-25	</td><td>03-MAR-25	</td><td>RCT 1	</td><td align="right"><b>   9,110.09	</b></td><td align="right">       0.00	</td><td>39434	</td><td>03-MAR-25	</td><td>MBT 7	</td><td>03-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	11	</td><td><span class="pointer" onclick="descargar_pago(570392)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-7 | Acondicionamiento /residencia señoritas | PAGO DE LA VA	</td><td align="right"><b>23,400.00	</b></td><td>Conco Contratistas S.A.C. Conco Contratistas S.A.C. 	</td><td><b>20608417436	</b></td><td>FACTURA	</td><td>E001-7	</td><td>000000000007	</td><td align="right"><b>23,400.00	</td><td align="right"><b>0.00	</b></td><td>27-FEB-25	</td><td>03-MAR-25	</td><td>RCT 1	</td><td align="right"><b>  23,400.00	</b></td><td align="right">       0.00	</td><td>150911	</td><td>05-MAR-25	</td><td>MBT 8	</td><td>05-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	12	</td><td><span class="pointer" onclick="descargar_pago(575621)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-62 | POR EL CONCEPTO DE LA VALORIZACION Nº 5   DEL SERV | P	</td><td align="right"><b>17,173.53	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-62	</td><td>000000000062	</td><td align="right"><b>17,173.53	</td><td align="right"><b>0.00	</b></td><td>05-MAR-25	</td><td>07-MAR-25	</td><td>RCT 4	</td><td align="right"><b>  17,173.53	</b></td><td align="right">       0.00	</td><td>39552	</td><td>07-MAR-25	</td><td>MBT 16	</td><td>07-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	13	</td><td><span class="pointer" onclick="descargar_pago(577037)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- F001-1582 | VALORIZACION N° 02 DEL CONTRATO DE SUMINISTRO E IN |	</td><td align="right"><b>10,000.00	</b></td><td>Sarovi Group E.I.R.L. - 	</td><td><b>20604987688	</b></td><td>FACTURA	</td><td>F001-1582	</td><td>000000001582	</td><td align="right"><b>10,000.00	</td><td align="right"><b>0.00	</b></td><td>05-MAR-25	</td><td>07-MAR-25	</td><td>RCT 4	</td><td align="right"><b>  10,000.00	</b></td><td align="right">       0.00	</td><td>39567	</td><td>07-MAR-25	</td><td>MBT 16	</td><td>07-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	14	</td><td><span class="pointer" onclick="descargar_pago(579252)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-905 | ADELANTO DEL 50% DE LA REMODELACION DE LA RESIDENC | 	</td><td align="right"><b>3,750.00	</b></td><td>Multiservicios Magi Sociedad Anonima Cerrada - Multimagi S.A.C. Multiservicios Magi Sociedad Anonima Cerrada - Multimagi S.A.C. 	</td><td><b>20601519471	</b></td><td>FACTURA	</td><td>E001-905	</td><td>000000000905	</td><td align="right"><b>3,750.00	</td><td align="right"><b>0.00	</b></td><td>06-MAR-25	</td><td>11-MAR-25	</td><td>RCT 7	</td><td align="right"><b>   3,750.00	</b></td><td align="right">       0.00	</td><td>39695	</td><td>13-MAR-25	</td><td>MBT 24	</td><td>13-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	15	</td><td><span class="pointer" onclick="descargar_pago(580470)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-420 | Fabricacion puertas, etc/residencia señoritas | ADELA	</td><td align="right"><b>28,250.00	</b></td><td>Tomanguilla Velayarce Juan Carlos Tomanguilla Velayarce Juan Carlos 	</td><td><b>10473176152	</b></td><td>FACTURA	</td><td>E001-420	</td><td>000000000420	</td><td align="right"><b>28,250.00	</td><td align="right"><b>0.00	</b></td><td>11-MAR-25	</td><td>13-MAR-25	</td><td>RCT 9	</td><td align="right"><b>  28,250.00	</b></td><td align="right">       0.00	</td><td>39736	</td><td>14-MAR-25	</td><td>MBT 25	</td><td>14-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	16	</td><td><span class="pointer" onclick="descargar_pago(582919)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-4 | PI:1426-IMPLEMENTACIÓN DE JARDINERÍA EN REMODELACIÓN DE	</td><td align="right"><b>915.00	</b></td><td>Selmith Davila Nina	</td><td><b>10472190356	</b></td><td>FACTURA	</td><td>E001-4	</td><td>000000000004	</td><td align="right"><b>915.00	</td><td align="right"><b>0.00	</b></td><td>10-MAR-25	</td><td>14-MAR-25	</td><td>RCT 10	</td><td align="right"><b>     915.00	</b></td><td align="right">       0.00	</td><td>1171096	</td><td>14-MAR-25	</td><td>MBT 25	</td><td>14-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	17	</td><td><span class="pointer" onclick="descargar_pago(583127)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- FT01-23658 | PI:1424-EQUIPOS RESIDENCIA SEÑORITAS-13/03/2025 | E	</td><td align="right"><b>2,220.00	</b></td><td>Amidata Negocios S.A.C. - 	</td><td><b>20450489931	</b></td><td>FACTURA	</td><td>FT01-23658	</td><td>000000023658	</td><td align="right"><b>2,220.00	</td><td align="right"><b>0.00	</b></td><td>13-MAR-25	</td><td>17-MAR-25	</td><td>RCT 11	</td><td align="right"><b>   2,220.00	</b></td><td align="right">       0.00	</td><td>1159890	</td><td>17-MAR-25	</td><td>MBT 31	</td><td>17-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	18	</td><td><span class="pointer" onclick="descargar_pago(584477)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-63 | POR EL CONCEPTO DEL PAGO DE LA VALORIZACION 06 DEL | P	</td><td align="right"><b>9,744.55	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-63	</td><td>000000000063	</td><td align="right"><b>9,744.55	</td><td align="right"><b>0.00	</b></td><td>13-MAR-25	</td><td>18-MAR-25	</td><td>RCT 12	</td><td align="right"><b>   9,744.55	</b></td><td align="right">       0.00	</td><td>39829	</td><td>19-MAR-25	</td><td>MBT 34	</td><td>19-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	19	</td><td><span class="pointer" onclick="descargar_pago(588987)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-1 | ADELANTO DEL 50% DEL CONTRATO DE SERVICIO DEINSTAL | AD	</td><td align="right"><b>16,500.00	</b></td><td>Arquitec House S.A.C. Arquitec House S.A.C. 	</td><td><b>20610375121	</b></td><td>FACTURA	</td><td>E001-1	</td><td>000000000001	</td><td align="right"><b>16,500.00	</td><td align="right"><b>0.00	</b></td><td>22-MAR-25	</td><td>25-MAR-25	</td><td>RCT 16	</td><td align="right"><b>  16,500.00	</b></td><td align="right">       0.00	</td><td>846657	</td><td>26-MAR-25	</td><td>MBT 46	</td><td>26-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	20	</td><td><span class="pointer" onclick="descargar_pago(592525)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-5 | PAGO POR CULMINACIÓN DEL SERVICIO DE PINTADO DE PU | PA	</td><td align="right"><b>31,250.00	</b></td><td>Eulises Lozano Vasquez	</td><td><b>10275707452	</b></td><td>FACTURA	</td><td>E001-5	</td><td>000000000005	</td><td align="right"><b>31,250.00	</td><td align="right"><b>0.00	</b></td><td>19-MAR-25	</td><td>27-MAR-25	</td><td>RCT 18	</td><td align="right"><b>  31,250.00	</b></td><td align="right">       0.00	</td><td>39898	</td><td>27-MAR-25	</td><td>MBT 52	</td><td>27-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	21	</td><td><span class="pointer" onclick="descargar_pago(592578)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-2 | PAGO FINAL DEL 50% DEL CONTRATO DE SERVICIO DEINST | PA	</td><td align="right"><b>16,500.00	</b></td><td>Arquitec House S.A.C. Arquitec House S.A.C. 	</td><td><b>20610375121	</b></td><td>FACTURA	</td><td>E001-2	</td><td>000000000002	</td><td align="right"><b>16,500.00	</td><td align="right"><b>0.00	</b></td><td>25-MAR-25	</td><td>27-MAR-25	</td><td>RCT 18	</td><td align="right"><b>  16,500.00	</b></td><td align="right">       0.00	</td><td>880635	</td><td>27-MAR-25	</td><td>MBT 52	</td><td>27-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	22	</td><td><span class="pointer" onclick="descargar_pago(592617)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-65 | POR EL CONCEPTO DE PAGO DE LA VALORIZACION 1 DEL C | P	</td><td align="right"><b>23,000.00	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-65	</td><td>000000000065	</td><td align="right"><b>23,000.00	</td><td align="right"><b>0.00	</b></td><td>21-MAR-25	</td><td>28-MAR-25	</td><td>RCT 20	</td><td align="right"><b>  23,000.00	</b></td><td align="right">       0.00	</td><td>39933	</td><td>31-MAR-25	</td><td>MBT 57	</td><td>31-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	23	</td><td><span class="pointer" onclick="descargar_pago(592666)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-64 | POR EL CONCEPTO DEL PAGO FINAL CON LA VALORIZACION | P	</td><td align="right"><b>9,415.34	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-64	</td><td>000000000064	</td><td align="right"><b>9,415.34	</td><td align="right"><b>0.00	</b></td><td>21-MAR-25	</td><td>28-MAR-25	</td><td>RCT 19	</td><td align="right"><b>   9,415.34	</b></td><td align="right">       0.00	</td><td>39933	</td><td>31-MAR-25	</td><td>MBT 57	</td><td>31-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	24	</td><td><span class="pointer" onclick="descargar_pago(592687)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-427 | PAGO FINAL DEL 50% DEL CONTRATO DE FABRICACIÓN DE  | 	</td><td align="right"><b>28,250.00	</b></td><td>Tomanguilla Velayarce Juan Carlos Tomanguilla Velayarce Juan Carlos 	</td><td><b>10473176152	</b></td><td>FACTURA	</td><td>E001-427	</td><td>000000000427	</td><td align="right"><b>28,250.00	</td><td align="right"><b>0.00	</b></td><td>27-MAR-25	</td><td>31-MAR-25	</td><td>RCT 20	</td><td align="right"><b>  28,250.00	</b></td><td align="right">       0.00	</td><td>39961	</td><td>02-ABR-25	</td><td>	</td><td>02-ABR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	25	</td><td><span class="pointer" onclick="descargar_pago(592982)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-8 | PAGO FINAL DEL SERVICIO DE MANTENIMIENTO DE COBERT | PA	</td><td align="right"><b>7,800.00	</b></td><td>Conco Contratistas S.A.C. Conco Contratistas S.A.C. 	</td><td><b>20608417436	</b></td><td>FACTURA	</td><td>E001-8	</td><td>000000000008	</td><td align="right"><b>7,800.00	</td><td align="right"><b>0.00	</b></td><td>26-MAR-25	</td><td>31-MAR-25	</td><td>RCT 20	</td><td align="right"><b>   7,800.00	</b></td><td align="right">       0.00	</td><td>238903	</td><td>02-ABR-25	</td><td>	</td><td>02-ABR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	26	</td><td><span class="pointer" onclick="descargar_pago(593430)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- F001-1586 | PAGO FINAL DEL CONTRATO DE SUMINISTRO E INSTALACIO |	</td><td align="right"><b>8,482.20	</b></td><td>Sarovi Group E.I.R.L. - 	</td><td><b>20604987688	</b></td><td>FACTURA	</td><td>F001-1586	</td><td>000000001586	</td><td align="right"><b>8,482.20	</td><td align="right"><b>0.00	</b></td><td>21-MAR-25	</td><td>28-MAR-25	</td><td>RCT 19	</td><td align="right"><b>   8,482.20	</b></td><td align="right">       0.00	</td><td>39930	</td><td>31-MAR-25	</td><td>MBT 57	</td><td>31-MAR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	27	</td><td><span class="pointer" onclick="descargar_pago(595020)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-67 | POR EL CONCEPTO DE PAGO DE LA RETENCION DE GARANTI | P	</td><td align="right"><b>14,260.66	</b></td><td>Ct Celmira Consultoria & Construccion S.A.C. Ct Celmira Consultoria & Construccion S.A.C. 	</td><td><b>20602538860	</b></td><td>FACTURA	</td><td>E001-67	</td><td>000000000067	</td><td align="right"><b>14,260.66	</td><td align="right"><b>0.00	</b></td><td>28-MAR-25	</td><td>10-ABR-25	</td><td>	</td><td align="right"><b>  14,260.66	</b></td><td align="right">       0.00	</td><td>40117	</td><td>10-ABR-25	</td><td>	</td><td>10-ABR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	28	</td><td><span class="pointer" onclick="descargar_pago(595044)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-936 | PAGO FINAL DEL CONTRATO N1 036-2025 DE SERVICIO DE | 	</td><td align="right"><b>3,750.00	</b></td><td>Multiservicios Magi Sociedad Anonima Cerrada - Multimagi S.A.C. Multiservicios Magi Sociedad Anonima Cerrada - Multimagi S.A.C. 	</td><td><b>20601519471	</b></td><td>FACTURA	</td><td>E001-936	</td><td>000000000936	</td><td align="right"><b>3,750.00	</td><td align="right"><b>0.00	</b></td><td>31-MAR-25	</td><td>04-ABR-25	</td><td>	</td><td align="right"><b>   3,750.00	</b></td><td align="right">       0.00	</td><td>40015	</td><td>04-ABR-25	</td><td>	</td><td>04-ABR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	29	</td><td><span class="pointer" onclick="descargar_pago(599205)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- F010-2157 | PI:1485-REQUERIMIENTO DE MATERIALES DE AUDIO PARA EL	</td><td align="right"><b>2,470.00	</b></td><td>Vigil Electronics E.I.R.L. - 	</td><td><b>20601052131	</b></td><td>FACTURA	</td><td>F010-2157	</td><td>000000002157	</td><td align="right"><b>2,470.00	</td><td align="right"><b>0.00	</b></td><td>02-ABR-25	</td><td>10-ABR-25	</td><td>	</td><td align="right"><b>   2,470.00	</b></td><td align="right">       0.00	</td><td>1036944	</td><td>11-ABR-25	</td><td>	</td><td>11-ABR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	30	</td><td><span class="pointer" onclick="descargar_pago(600940)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- FB19-2310 | PI:1576-COMPRA MATERIALES RESIDENCIA-04/04/2025 | TV	</td><td align="right"><b>1,899.06	</b></td><td>Conecta Retail Selva S.A.C. Efe, Curacao 	</td><td><b>20494007488	</b></td><td>FACTURA	</td><td>FB19-2310	</td><td>000000002310	</td><td align="right"><b>1,899.06	</td><td align="right"><b>0.00	</b></td><td>07-ABR-25	</td><td>09-ABR-25	</td><td>	</td><td align="right"><b>   1,899.06	</b></td><td align="right">       0.00	</td><td>1044267	</td><td>09-ABR-25	</td><td>	</td><td>09-ABR-25	</td><td>	</td><td>	</td></tr>
+                    <tr><td align="right">	31	</td><td><span class="pointer" onclick="descargar_pago(603641)"><i class="fa fa-eye" aria-hidden="true"></i> Docs</span>	</td><td>1231004-7124-59226	</td><td>62020101	</td><td>7124- E001-938 | PI:1587-REQUERIMIENTO DE MATERIALES PARA LA IMPLEMENT	</td><td align="right"><b>400.00	</b></td><td>Multiservicios Magi Sociedad Anonima Cerrada - Multimagi S.A.C. Multiservicios Magi Sociedad Anonima Cerrada - Multimagi S.A.C. 	</td><td><b>20601519471	</b></td><td>FACTURA	</td><td>E001-938	</td><td>000000000938	</td><td align="right"><b>400.00	</td><td align="right"><b>0.00	</b></td><td>04-ABR-25	</td><td>11-ABR-25	</td><td>	</td><td align="right"><b>     400.00	</b></td><td align="right">       0.00	</td><td>40148	</td><td>14-ABR-25	</td><td>	</td><td>14-ABR-25	</td><td>	</td><td>	</td></tr>
+                    
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+    
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal_docs" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Documentos</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <ul class="list-group list-group-flush " id="lista_docs">
+                
+                
+            </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="modal_error" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-danger text" id="staticBackdropLabel"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Error!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <p class="">Token caducado! <i class="fa fa-frown-o" aria-hidden="true"></i></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    
+
+
+
+
+
+    
+
+<script>
+
+let list_docs_html ="";
+let _TOKEN = "W0VJti3MgDFj8dM8JfKxZhdOeIbDyz";   
+//c6daGqeTgtdERDMVDatRto9gnynoGa
+
+const myModal = new bootstrap.Modal(document.getElementById('modal_docs'), {
+  keyboard: true,
+  focus: true
+});
+
+const myModalError = new bootstrap.Modal(document.getElementById('modal_error'), {
+  keyboard: true,
+  focus: true
+});
+
+
+
+
+function    descargar_compra(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+        window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+    }
+    };
+}
+
+function descargar_pago(id_pcompra){
+    let TOKEN = document.getElementById('f_token').value;
+    if(TOKEN == "X"){
+        TOKEN = _TOKEN;
+    }
+
+    list_docs_html = "";
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://api-lamb.upeu.edu.pe/purchases-v1/api/task/order-all-file/"+id_pcompra);
+    xhr.setRequestHeader("Authorization", TOKEN);
+    
+    xhr.send();
+    xhr.responseType = "json";
+    xhr.onload = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        const data = xhr.response;
+        console.log(data);
+
+        data.forEach((file, index) => {
+            let _doc = "";
+            if(file.tipo=="3"){_doc="Compra"}else if(file.tipo=="1" || file.tipo=="12"){_doc="Pago TLC"}else if(file.tipo=="5"){_doc = "Sustento"}else if(file.tipo=="14"){_doc = "Detrac."}
+            list_docs_html += '<li class="list-group-item"><span class="badge text-bg-success">'+_doc+' </span> '+file.nombre+' <a class="badge text-bg-warning" href="'+file.url+'" target="_blank"> Ver doc <i class="fa fa-download" aria-hidden="true"></i></a></li>';
+        });
+
+        document.getElementById("lista_docs").innerHTML = list_docs_html;
+        
+        console.log("abriendo modal");
+
+
+
+        myModal.show();
+        //window.open(data[0].url, '_blank');
+    } else {
+        console.log(`Error: ${xhr.status}`);
+        myModalError.show();
+    }
+    };
+}
+
+
+
+
+function doSearch(){
+
+  const tableReg = document.getElementById('datos_compras');
+
+  const searchText = document.getElementById('searchTerm').value.toLowerCase();
+
+  let total = 0;
+
+
+
+  // Recorremos todas las filas con contenido de la tabla
+
+  for (let i = 1; i < tableReg.rows.length; i++) {
+
+      // Si el td tiene la clase "noSearch" no se busca en su cntenido
+
+      if (tableReg.rows[i].classList.contains("noSearch")) {
+
+          continue;
+
+      }
+
+
+
+      let found = false;
+
+      const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+
+      // Recorremos todas las celdas
+
+      for (let j = 0; j < cellsOfRow.length && !found; j++) {
+
+          const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+
+          // Buscamos el texto en el contenido de la celda
+
+          if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+
+              found = true;
+
+              total++;
+
+          }
+
+      }
+
+      if (found) {
+
+      tableReg.rows[i].style.display = '';
+
+      } else {
+
+      // si no ha encontrado ninguna coincidencia, esconde la
+
+      // fila de la tabla
+
+      tableReg.rows[i].style.display = 'none';
+
+      }
+
+  }
+  
+  // mostramos las coincidencias
+
+  const msj_busqueda = document.getElementById("text_resultados");
+
+  msj_busqueda.classList.remove("hide", "red");
+
+  if (searchText == "") {
+
+    msj_busqueda.classList.add("hide");
+
+  } else if (total) {
+
+    msj_busqueda.innerHTML="Hay <b>"+total+"</b> coincidencia"+((total>1)?"s":"");
+
+  } else {
+
+    msj_busqueda.classList.add("red");
+
+    msj_busqueda.innerHTML="<b>0</b> coincidencias";
+
+  }
+
+}
+
+
+
+
+
+
+</script>
+</body>
+</html>
